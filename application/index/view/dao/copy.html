@@ -1,0 +1,90 @@
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/clipboard.js/1.6.1/clipboard.min.js"></script>
+   <style>
+        #copy::selection { 
+            background: #fff;
+            color: #000;
+        }
+    </style>
+
+<div class="page has-sidebar-left">
+    <header class="blue accent-3 relative nav-sticky">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-content_copy"></i>
+                        激活码一键复制
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid relative animatedParent animateOnce">
+        <div class="tab-content pb-3" >
+
+            <!--Yesterday Tab Start-->
+            <div class="tab-pane animated fadeInUpShort go active show">
+                <div class="row">
+                    <div class="col-md-4 mx-md-auto m-2">
+                        <div class="card no-b shadow">
+                            <div class="card-body p-4">
+                                <div>
+                                    <i class="icon-beenhere s-48 text-primary"></i>
+                                    <p class="p-t-b-20 " >该激活码会在会员中心 - 我的激活码中显示</p>
+                                </div>
+                                    <div class="form-group has-icon"><i class="icon-lock-rounded-open4"></i>
+                                        <button class="form-control form-control-lg fq-shareapp-code " id="copy"> </button>
+                                    </div>
+                        
+                                    <input class="btn btn-primary btn-lg btn-block btn2" value="点击复制" type="submit" data-clipboard-target="#copy"  onClick="sub()">
+                 
+                              
+    <script>
+       $(function () {
+           new Clipboard('.btn1, .btn2');
+  //       layer.msg('激活码复制成功');
+       })
+      
+      
+    function sub(){
+		layer.msg('激活码复制成功');
+	}
+
+    </script>
+                              
+                              
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Yesterday Tab Start-->
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script type="text/javascript">
+      function GetQueryString(name){    
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");     
+                                    var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则     
+                                    if(r!=null)return  unescape(r[2]); return null;
+
+
+				}
+      
+              //获取口令
+        var koulin = GetQueryString("jihuoma");
+        $("#itemCopy").attr("data-clipboard-text", koulin);
+        $(".fq-shareapp-code").text(koulin);
+
+        
+    </script>
+
+
+
+

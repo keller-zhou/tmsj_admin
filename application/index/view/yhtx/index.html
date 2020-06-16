@@ -1,0 +1,409 @@
+<div class="page  has-sidebar-left height-full">
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-credit-card"></i>
+                        佣金管理
+                    </h4>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <ul class="nav nav-material nav-material-white responsive-tab" id="v-pills-tab" role="tablist">
+                    
+                    
+                    
+                    
+                <li>
+                        <a class="nav-link active"  href="{:url('yhtx/index')}" ><i class="icon icon-credit-card"></i>提现申请</a>
+                    </li><li>
+                        <a class="nav-link" href="{:url('yhtx/txlog')}"><i class="icon icon-payment"></i> 提现记录</a>
+                    </li></ul>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" >
+            <div class="tab-pane animated fadeInUpShort show active go" >
+                <div class="row my-3">
+                    <div class="col-md-7">
+                        <div class="card r-0 shadow">
+                            <div class="table-responsive">
+     
+                                    <table class="table table-striped table-hover r-0">
+                                        <thead>
+                                        <tr class="no-b">
+
+                                            <th>USER NAME</th>
+                                            <th >ID</th>
+                                            <th>金额</th>
+                                            <th>时间</th>
+                                            <th>支付宝</th>
+                                            <th>微信 <i class="icon-weixin text-light-blue"></i></th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                        {volist name="list" id="vo"}
+                                        <tr>
+    
+                                          
+                                          <td>
+                                             <!--   <div class="avatar avatar-md mr-3 mt-1 float-left">
+                                             <a  onclick="look('{$vo.zfb}')"> <img src="{$vo.zfb}"></a>
+                                                </div> -->
+                                                <div>
+                                                  
+                                                  <div>
+                                                        <small> <i class="icon-id-card-o text-light-blue"></i> {$vo.nick_name}</small>
+                                                    </div>
+                                                  
+                                                        <small>{$vo.username}</small>
+                                                </div>
+                                            </td>
+                                          
+                                          
+                                          
+                                          
+
+                                            <td> <small>{$vo.id}</small></td>
+                                            <td> <small><span style="color: #03a9f4;">{$vo.txje}</span></small></td>
+
+                                            <td> <small>{$vo.ctime|date="Y-m-d H:i:s",###}</small></td>
+                                            <td>
+                                                                                          <div>
+                                                  
+                                                  <div>
+                                                        <small> {$vo.zfb_name}</small>
+                                                    </div>
+                                                  
+                                                        <small> {$vo.zfb}</small>
+                                                </div>    
+                                              
+                                             
+                                          
+                                          
+                                          </td>
+                                          
+                                            <td> <small> {$vo.weichat}</small></td>
+                                      <!--                  <td><button class="btn btn-gray" onclick="yhtx('{$vo.tx==\'1\'?\'0\':\'1\'}','{$vo.id}','{$vo.username}','{$vo.txje}','{$vo.zfb}','{$vo.weichat}')">{$vo.tx==='1'?'<span style="color: red"> 拒绝支付</span>':'<span style="color: green"> 确定支付</span>'}</button></td>
+        -->
+                                 <td><button class="btn r-3 badge badge-success  " onclick="yhtx('{$vo.tx==\'1\'?\'0\':\'1\'}','{$vo.id}','{$vo.nick_name}','{$vo.txje}','{$vo.zfb}','{$vo.weichat}')"> <i class="icon-done"></i>确认打款</button></td> 
+                                 <td><button class="btn r-3 badge badge-Danger " onclick="yhtx('{$vo.tx==\'3\'?\'0\':\'3\'}','{$vo.id}','{$vo.nick_name}','{$vo.txje}','{$vo.zfb}','{$vo.weichat}')"> <i class="icon-close2"></i>驳回</button></td> 
+            
+                                        </tr>
+
+     {/volist}
+
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+
+                                        </tbody>
+                                    </table>
+
+                            </div>        
+                        </div>
+                          {$list->render()}
+                    </div>
+                </div>
+
+                
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+                                                                                                                    
+    function look(src){
+        //src=decodeURIComponent(src);                                                                                                            
+    	layer.alert('<img src="'+src+'"  width="100%">');                                                                                                                
+    }
+    function yhtx(tx,id,nick_name,txje,zfb,weichat){
+
+        if(id=='') {
+            var str = "";
+
+            $("input:checkbox[name='checkname']:checked").each(function () {
+                str += $(this).val() + ",";
+            });
+
+            if (str == '') {
+                return false
+            }
+        }else{
+            var str     =   id
+						var nikname =   nick_name
+						var txjex   =   txje
+						var zfb     =   zfb
+						var weixin  =   weichat
+        }
+        layer.confirm('是否确认已经打款', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            $.ajax({
+                'type'  :   'post',
+                'url'   :   '{:url("user/yhtx")}',
+                'data'  :   {
+                    'id'    :   str,
+                    'tx'    :   tx,
+								'nickname'  :   nikname,
+								   'txje'   :   txjex,
+								   'zfb'    :   zfb,
+									'weixin'  :   weixin
+								},
+                'dataType'  :   'json',
+                'success'   :   function (msg)
+                {
+                    window.location.reload();
+                    layer.closeAll();
+                    setTimeout("$('#alert').fadeOut(1000)", 2000)
+                },
+                'error'     :   function (err)
+                {
+                    layer.closeAll();
+                    $('#del').php('<div class="col-md-6" id="alert">' +
+                        '<div class="alert alert-danger"  style="position:fixed;right:0px;bottom:0px;  width: 350px">' +
+                        ' <button type="button" class="close" data-dismiss="alert">' +
+                        '<span aria-hidden="true">×</span>' +
+                        '<span class="sr-only">Close</span>' +
+                        '</button>' +
+                        '<strong> 糟糕 !</strong> 服务器错误'+
+                        '.请刷新后重试' +
+                        '</div>' +
+                        '</div>');
+                    setTimeout("yalert()", 2000)
+                }
+            })
+        })
+
+    }
+    function yalert() {
+
+        $('#alert').fadeOut(1000);
+        $('#alert').remove()
+    }
+
+</script>
+
+
+
+
+<script>
+    $("input[name='checkall']").click(function(){
+//判断当前点击的复选框处于什么状态$(this).is(":checked") 返回的是布尔类型
+        if($(this).is(":checked")){
+            $("input[name='checkname']").prop("checked",true);
+        }else{
+            $("input[name='checkname']").prop("checked",false);
+        }
+    });
+</script>
+{$code==1?'
+<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 !</strong> 添加成功.
+    </div>
+</div>
+
+':''}
+
+
+{$code==2?'
+<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 !</strong> 修改成功.
+    </div>
+</div>
+
+':''}
+{$code==3?'
+<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 !</strong> 删除成功.
+    </div>
+</div>
+
+':''}
+<?php if(session('power')=='0'){?>
+<script>
+    function del(id){
+        if(id=='') {
+            var str = "";
+            $("input:checkbox[name='checkname']:checked").each(function () {
+                str += $(this).val() + ",";
+            });
+
+            if (str == '') {
+                return false
+            }
+        }else{
+            var str     =   id
+        }
+        layer.confirm('您是否删除该数据', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            $.ajax({
+                'type'  :   'post',
+                'url'   :   '{:url("user/delete")}',
+                'data'  :   {
+                    'id'    :   str
+                },
+                'dataType'  :   'json',
+                'success'   :   function (msg)
+                {
+                    if(msg.code=='1')
+                    {
+                        window.location.reload();
+                    }else{
+                        layer.closeAll();
+                        $('#del').php('<div class="col-md-6" id="alert">' +
+                            '<div class="alert alert-danger"  style="position:fixed;right:0px;bottom:0px;  width: 350px">' +
+                            ' <button type="button" class="close" data-dismiss="alert">' +
+                            '<span aria-hidden="true">×</span>' +
+                            '<span class="sr-only">Close</span>' +
+                            '</button>' +
+                            '<strong> 糟糕 !</strong> 删除失败'+
+                            '.请刷新后重试' +
+                            '</div>' +
+                            '</div>');
+                    }
+
+
+                    layer.closeAll();
+                    setTimeout("$('#alert').fadeOut(1000)", 2000)
+                },
+                'error'     :   function (err)
+                {
+                    layer.closeAll();
+                    $('#del').php('<div class="col-md-6" id="alert">' +
+                        '<div class="alert alert-danger"  style="position:fixed;right:0px;bottom:0px;  width: 350px">' +
+                        ' <button type="button" class="close" data-dismiss="alert">' +
+                        '<span aria-hidden="true">×</span>' +
+                        '<span class="sr-only">Close</span>' +
+                        '</button>' +
+                        '<strong> 糟糕 !</strong> 服务器错误'+
+                        '.请刷新后重试' +
+                        '</div>' +
+                        '</div>');
+                    setTimeout("yalert()", 2000)
+                }
+            })
+        })
+
+    }
+    function yalert() {
+
+        $('#alert').fadeOut(1000);
+        $('#alert').remove()
+    }
+
+</script>
+
+
+<script>
+    function status(status,id){
+
+        if(id=='') {
+            var str = "";
+            $("input:checkbox[name='checkname']:checked").each(function () {
+                str += $(this).val() + ",";
+            });
+
+            if (str == '') {
+                return false
+            }
+        }else{
+            var str     =   id
+        }
+
+
+        layer.confirm('您是否审核通过这些数据', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            $.ajax({
+                'type'  :   'post',
+                'url'   :   '{:url("user/status")}',
+                'data'  :   {
+                    'id'    :   str,
+                    'status':   status
+                },
+                'dataType'  :   'json',
+                'success'   :   function (msg)
+                {
+
+                    window.location.reload();
+
+
+
+                    layer.closeAll();
+                    setTimeout("$('#alert').fadeOut(1000)", 2000)
+                },
+                'error'     :   function (err)
+                {
+                    layer.closeAll();
+                    $('#del').php('<div class="col-md-6" id="alert">' +
+                        '<div class="alert alert-danger"  style="position:fixed;right:0px;bottom:0px;  width: 350px">' +
+                        ' <button type="button" class="close" data-dismiss="alert">' +
+                        '<span aria-hidden="true">×</span>' +
+                        '<span class="sr-only">Close</span>' +
+                        '</button>' +
+                        '<strong> 糟糕 !</strong> 服务器错误'+
+                        '.请刷新后重试' +
+                        '</div>' +
+                        '</div>');
+                    setTimeout("yalert()", 2000)
+                }
+            })
+        })
+
+    }
+    function yalert() {
+
+        $('#alert').fadeOut(1000);
+        $('#alert').remove()
+    }
+
+</script>
+
+
+
+<?php }?>
+
+
+<script>
+
+    function kill()
+    {
+        layer.closeAll();
+    }
+    setTimeout("$('#alert').fadeOut(1000)", 2000)
+</script>

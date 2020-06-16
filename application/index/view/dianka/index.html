@@ -1,0 +1,243 @@
+<div class="page has-sidebar-left bg-light height-full">
+
+  
+  <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-address-card"></i>
+                        激活码管理
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white">
+                    
+                    
+                    
+                <li><a class="nav-link active" href="{:url('dianka/index')}"><i class="icon icon-plus-circle"></i>生成</a></li>
+                  <li><a class="nav-link" href="{:url('dianka/ylog')}"><i class="icon icon-donut_small"></i> 待用</a></li>
+                  <li><a class="nav-link" href="{:url('dianka/slog')}"><i class="icon icon-check-square"></i> 已用</a></li>
+              </ul>
+            </div>
+        </div>
+    </header>
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="container-fluid my-3">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card">
+                    <div>
+                      
+                      
+                      
+                      
+          <div class="sw-container tab-content">
+                                   <div id="step-1y" class="card-body p-5 tab-pane step-content" style="display: block;">
+                                         
+                                         <h5>激活码生成</h5> <hr>
+                                           <div class="form-row">
+                                              <div class="form-group col-md-12 focused">  </div>
+                                             
+                                               <div class="form-group col-md-6 focused">
+                                                   <select name="ctime" id="ss"  class="form-control form-control-lg" style=" height: 3.2rem; ">
+                                                      <option value="{$d_vip1}"}>体验:{$d_vip1}元</option>
+                                                      <option value="{$d_vip2}"}>一月:{$d_vip2}元</option>
+                                                      <option value="{$d_vip3}"}>三月:{$d_vip3}元</option>
+                                                     <option value="{$d_vip4}"}>半年:{$d_vip4}元</option>
+                                                      <option value="{$d_vip5}"}>一年:{$d_vip5}元</option>
+                                                      <option value="{$d_vip6}"}>永久:{$d_vip6}元</option>
+                                                  <?php if(session('power')=='0'){?>       <option value="{$daili_price}"}>代理:{$daili_price}元</option>  <?php } ?> 
+                                                   </select>
+                                               </div>
+                                             
+                                               <div class="form-group col-md-6 focused">
+                                                  <button type="submit"  onclick="dangetian()" class="btn btn-primary form-control form-control-lg">生成</button>
+                                               </div>
+                 
+ <script>
+
+function dangetian() {
+    var ctime   =   $('#ss').val();
+    var fen     =   1;
+    $.ajax({
+        'type'  :   'post',
+        'url'   :   '/index/dianka/dangesheng.html',
+        'data'  :   {
+            'ctime' :   ctime,
+            'fen'   :   fen
+        },
+        'dataType'  :   'json',
+        'success'   :   function (msg) {
+            if(msg.code=='1')
+            {
+              
+              
+ layer.msg('成功！正在跳转…', {
+  icon: 1,//提示的样式
+  time: 2000, //2秒关闭（如果不配置，默认是3秒）//设置后不需要自己写定时关闭了，单位是毫秒
+end:function(){
+location.href=('/index/dao/copy.html?jihuoma='+msg.dian);
+}
+}); 
+            }else{
+                layer.msg(msg.dian);
+            }
+        },
+        'error' :   function () {
+            layer.alert('服务器错误');
+        }
+    })
+}
+  
+
+</script>
+      
+
+      
+        <?php
+
+foreach($dian as $v)
+{
+echo $v."<br>";
+        }
+?>                                            
+                                             
+                                             
+                                             
+                                           </div>
+                                   </div>
+            
+            
+            
+                                        
+            
+            
+                                     <div id="step-1y" class="card-body p-5 tab-pane step-content" style="display: block;">
+                                         <h5>激活码批量生成</h5> <hr>
+                  						  <div class="form-row">
+                                             
+                                            
+                                            
+                                            <div class="form-group col-md-12 focused">
+                                              <input type="number" id="fen"  name="fen"  class="range-slider form-control" tabindex="-1" readonly="" data-options='{ "min": 5, "max": 500, "from": 5 }'/>
+                     						  </div>
+
+                                            
+                                            
+                                               <div class="form-group col-md-6 focused">
+                                                   <select name="ctime" id="sss" class="form-control form-control-lg" style=" height: 3.2rem; ">
+                                                      <option value="{$d_vip1}"}>体验:{$d_vip1}元</option>
+                                                      <option value="{$d_vip2}"}>一月:{$d_vip2}元</option>
+                                                      <option value="{$d_vip3}"}>三月:{$d_vip3}元</option>
+                                                     <option value="{$d_vip4}"}>半年:{$d_vip4}元</option>
+                                                      <option value="{$d_vip5}"}>一年:{$d_vip5}元</option>
+                                                      <option value="{$d_vip6}"}>永久:{$d_vip6}元</option>
+                                                  <?php if(session('power')=='0'){?>       <option value="{$daili_price}"}>代理:{$daili_price}元</option>  <?php } ?> 
+                                                   </select>
+                                               </div>
+                                             
+                                               <div class="form-group col-md-6 focused">
+                                                  <button type="submit"   onclick="tian()" class="btn btn-primary form-control form-control-lg">批量生成</button>
+                                               </div>
+                 
+                       <script>
+function tian() {
+    var ctime   =   $('#sss').val();
+    var fen     =   $('#fen').val();
+    if(fen<1|| (~~fen!=fen) ){
+        alert("请输入正确的数字!");
+        return;
+    }
+    $.ajax({
+        'type'  :   'post',
+        'url'   :   '/index/dianka/sheng.html',
+        'data'  :   {
+            'ctime' :   ctime,
+            'fen'   :   fen
+        },
+        'dataType'  :   'json',
+        'success'   :   function (msg) {
+            if(msg.code=='1')
+            {
+                layer.alert(msg.dian,{
+                    btn:['txt导出','excel导出','取消'],
+                    btn1: function(index, layero){
+                        window.open('/index/dao/txt.html?content='+msg.dian);
+                    }
+                    ,btn2: function(index, layero){
+                        window.open('/index/dao/excel.html?content='+msg.dian);
+                        return false
+                    }
+                })
+            }else{
+                layer.alert(msg.dian);
+            }
+        },
+        'error' :   function () {
+            layer.alert('服务器错误');
+        }
+    })
+}
+  
+
+</script>
+        <?php
+
+foreach($dian as $v)
+{
+echo $v."<br>";
+        }
+?>
+                                            
+                                            
+                                           </div>
+                                   </div>
+            
+            
+            
+            
+                      
+                               </div>            
+                      
+                    </div>
+                </div>
+            </div>
+
+          
+          
+          
+          
+          
+          <div class="col-md-5">
+                                  <h3>激活码帮助</h3>
+                                  <hr>
+                                  <p>生成的激活码可在APP“我的激活码”中展示</p>
+
+                                  <p>批量生成激活码 最低5 最多500，需要大量生成请少量多次</p>
+
+                               
+                                  <hr>
+                                  <h4 class="mt-5">未完待续</h4>
+                                  <a href="#" target="_blank" class="btn btn-outline-primary btn-xs">Perfect Network Service</a>
+                                
+                              </div>   
+          
+          
+          
+          
+          
+          
+          
+          
+        </div>
+    </div>
+</div>

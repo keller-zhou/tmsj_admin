@@ -1,0 +1,168 @@
+<div class="page has-sidebar-left">
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-bullhorn"></i>
+                        公告管理
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white">
+                    
+                    
+                    
+                <li>
+                        <a class="nav-link active" href="<?php echo url('task/artical'); ?>"><i class="icon icon-list"></i>公告列表</a>
+                    </li><li>
+                        <a class="nav-link" href="<?php echo url('task/add_art'); ?>"><i class="icon icon-plus-circle"></i> 添加</a>
+                    </li></ul>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid animatedParent animateOnce my-3">
+        <div class="animated fadeInUpShort go">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="card no-b shadow">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+
+                              
+                              
+                              
+                              
+                              
+              <table class="table table-striped table-hover r-0">
+
+                                        <tbody>
+
+                              {volist name="list" id="vo"}                                     
+                                          <tr>
+                                            <td style=" width: 2px; ">
+												  <small> {$vo.sort} </small>
+                                            </td>
+
+                                            <td >
+                                                <div class="avatar-md mr-3 mt-1 float-left">
+                                                   <img src="{$vo.picture}" >
+                                                </div>
+                                         
+                                                        <small>{$vo.title}</small>
+                                                <br>
+                                                    <small>{$vo.time|date="Y-m-d H:i:s",###}</small>
+                                              
+                                            </td>
+
+    
+                                             <td> <small>
+                                              
+                                              <?php  if($vo['eject']=='0')    { ?>
+                                                 <a href="{:url('task/eject_ok',['id'=>$vo['id']])}" title="弹窗"  class="btn btn-outline-secondary btn-xs"><i class="icon-desktop"></i> </a>
+                                               
+                                             <?php }else if($vo['eject']=='1')    {   ?>  
+                                           
+                                                 <a href="{:url('task/eject_no',['id'=>$vo['id']])}" title="取消"  class="btn btn-outline-danger btn-xs blink"><i class="icon-desktop"></i> 首页弹窗中</a>
+                                               <?php }   ?>
+                                               
+                                         
+                                              
+                                              
+                                            </small></td>   
+                                            
+                                            
+                      
+                                            
+                                            <td>
+                                            <a href="{:url('task/update_art',['id'=>$vo['id']])}" title="修改" class="btn-fab btn-fab-sm btn-primary shadow text-white"><i class="icon-pencil"></i></a>
+                                            </td>                                 
+                                            
+                                            <td >
+                                            <a  href="{:url('task/del_art',['id'=>$vo['id']])}" title="删除" class="btn-fab btn-fab-sm btn-Danger shadow text-white"><i class="icon-close2"></i></a>
+                                            </td>
+                                        </tr>
+       
+                          {/volist}       
+                                        </tbody>
+                                    </table>                
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                
+  
+						  <div class="col-md-5">
+                                  <hr>
+                                  <h3>公告帮助</h3>
+                                  <p>公告数量不宜过多 时间过久的建议删除.</p>
+                                  <p>注意：点击  <span class="btn-fab btn-fab-sm btn-Danger shadow text-white"><i class="icon-close2"></i></span> 即删除 不可逆且无法恢复 .</p>
+                            
+                            
+                            <br> 
+                                  <a class="btn btn-xs btn-primary">首页弹窗 </a><br><br>
+                            
+                                   点击公告列表中的 <a  class="btn btn-outline-secondary btn-xs"><i class="icon-desktop"></i> </a> 将在APP中进行弹窗提示
+
+                          
+                                  <h4 class="mt-5">未完待续……</h4>
+                                  <hr>
+								
+                                  <a class="btn btn-outline-primary btn-xs">Perfect Network Service</a>
+                                
+                              </div>
+              
+            </div>
+      <!--      <nav class="pt-3" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>-->
+        </div>
+    </div>
+  
+</div>
+
+
+
+
+
+{if($code==1)}
+<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+  <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+      </button>
+
+      <strong>恭喜!</strong> <?php echo input('msg');?>
+  </div>
+</div>
+{/if}

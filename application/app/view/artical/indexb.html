@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{$title}</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <link href="/public/static/artical/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <!--
+         * 完美网服
+         * 旺旺  RAVEN_718
+        -->
+
+        <section class="aui-flexView">
+
+            <section class="aui-scrollView">
+                <div class="aui-flex">
+                    <div class="aui-live-img">
+                        <img src="{$picture}" alt="">
+                    </div>
+                    <div class="aui-flex-box">
+                        <h2>{$title}</h2>
+                        <span>{$time|date="Y-m-d H:i:s",###}</span>
+                    </div>
+                </div>
+
+
+                <div class="divHeight"></div>
+                <div class="aui-live-header">
+                    <h2>详情</h2>
+               {$content}
+              </div>
+
+            </section>
+
+        </section>
+
+    </body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{$title} - 完美网服</title>
+</head>
+<body>
+    <div>{$picture}</div>	<br>
+    <div>{$title}</div>	<br>
+    <div>{$content}</div>	<br>
+    <div>{$time}</div>
+</body>
+
+</html>
+-->

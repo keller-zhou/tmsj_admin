@@ -1,0 +1,162 @@
+<!-- <link rel="stylesheet" href="/public/static/upload/css/upload.css"> -->
+<style>
+        .img{
+            width: 60px;
+        }
+    </style>
+    <div class="row">
+        <div class="col-md-12">
+    <div class="panel panel-default">
+    
+    
+        <!--标题-->
+             
+           <div class="panel-heading">
+                  
+                   <div class="caption font-green bold">
+                            <span class="am-icon-code"></span> 新增任务
+                    </div>
+    
+                </div>
+           
+       
+        <!--标题-->
+      
+      
+        <div class="panel-body">
+    
+            <form role="form" id="form1"  method="post" action="{:url('task/create')}" enctype="multipart/form-data" class="validate">
+    
+                <div class="form-group">
+                    <label class="control-label">图片(最多上传9张)</label>
+                    <input type="file" id="picture" style="display:none;" class="" name="picture" multiple accept="image/png,image/gif,image/jpeg,image/jpg"/>
+                    <div class="am-panel am-panel-default">
+                        <div id="warp" class="am-panel-bd" >
+                                <span>
+                                    <input type='file' name="picture1" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                                <span>
+                                    <input type='file' name="picture2" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                                <span>
+                                    <input type='file' name="picture3" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                                <span>
+                                    <input type='file' name="picture4" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                                <span>
+                                    <input type='file' name="picture5" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                                <span>
+                                    <input type='file' name="picture6" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                                <span>
+                                    <input type='file' name="picture7" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                                <span>
+                                    <input type='file' name="picture8" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                                <span>
+                                    <input type='file' name="picture9" onchange="changeImg(this)" style="display: none;"  accept = 'image/gif,image/jpeg,image/jpg,image/png' />
+                                    <img class="img" id="img" src="/public/static/assets/images/tianjia.png">
+                                </span>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label">标题</label>
+    
+                    <input type="text" class="form-control" name="name"  placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">描述</label>
+    
+                    <input type="text" class="form-control" name="content"  placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">任务总数量</label>
+                    <input type="text" class="form-control" name="total"  placeholder="" />
+                </div>
+                <div class="form-group">
+                        <label class="control-label">任务价格</label>
+                        <input type="text" class="form-control" name="price"  placeholder="" />
+                    </div>
+                <div class="form-group">
+                    <button type="submit" onclick="" class="btn btn-success">提交</button>
+                    <button type="reset" class="btn btn-white">重置</button>
+                </div>
+    
+            </form>
+    
+        </div>
+    
+    </div>
+        </div>
+    
+    </div>
+    
+    {$code?'
+    <div class="col-md-6">
+        <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong> 糟糕 !</strong> '.$msg.'
+        </div>
+    </div>
+    
+    ':''}
+    <script>
+        setTimeout("$('#alert').fadeOut(1000)",2000)
+    </script>
+    
+    <script>
+    
+        $(function(){
+            //切换绑定。input 使用image 点击代替。
+            $('#warp').on('click','img',function(img){
+                img.target.previousElementSibling.click();
+            });
+        })
+        function changeImg(obj){
+            //js原生中不存在不知道为什么 找不到nextElementSibling对象。
+            //解决方法，把obj传给$，从而才获取到！！！console.log($(obj));
+            // console.log(obj.nextElementSibling.nextElementSibling);找不到
+            // console.log(obj.target);不存在
+            // console.log($(obj));
+            var file = obj.files[0];
+            // console.log(file);
+            // console.log("file.size = " + file.size);  //file.size 单位为byte
+            var reader = new FileReader();
+            //读取文件过程方法
+            // reader.onloadstart = function () {
+            //     console.log("开始读取....");
+            // }
+            // reader.onprogress = function () {
+            //     console.log("正在读取中....");
+            // }
+            // reader.onabort = function (e) {
+            //     console.log("中断读取....");
+            // }
+            // reader.onerror = function (e) {
+            //     console.log("读取异常....");
+            // }
+            reader.onload = function (e) {
+                console.log("成功读取....");
+                $(obj)[0].nextElementSibling.src = e.target.result;
+            }
+            reader.readAsDataURL(file)
+            }
+    </script>

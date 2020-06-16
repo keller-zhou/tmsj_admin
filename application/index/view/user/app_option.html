@@ -1,0 +1,199 @@
+          	 <style>
+    .panel-info .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-warning .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-danger .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-red .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-black .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-purple .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-blue .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-gray .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-success .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+      
+<div class="panel panel-default">
+
+  
+    <!--标题-->
+         
+       <div class="panel-heading">
+              
+               <div class="caption font-green bold">
+                        <span class="am-icon-code"></span> APP设置
+       		  </div>
+
+      </div>
+       
+   
+    <!--标题-->
+  
+
+    <div class="panel-body">
+
+        <form role="form" id="form1" method="post" action="{:url('user/app_option')}" class="validate">
+
+
+            <!--
+			<div class="form-group">
+                <label class="control-label">客服微信(会显示在属于你用户的APP中)</label>
+                <input type="text" class="form-control" id="weichat" name="weichat" value="{$list['weichat']}"  placeholder="微信" />
+            </div>
+            -->
+          
+            <div class="form-group">
+                <label class="control-label" style="color:hotpink;">设置前台一键开通代理价格</label>
+                <input type="text" class="form-control" name="daili_price" value="{$list['daili_price']}"  placeholder="不填默认188元" />
+            </div>
+          
+        <div class="row">
+            <!-- 用户购买vip价格设置 -->
+            <div class="col-md-6">
+                    <div class="panel panel-gray " style="padding:10px 5px 10px 0px;">
+                        <div class="panel-heading my_panel_head">用户购买vip价格设置</div>
+                        <div class="panel-body">
+                          
+                             <div class="form-group">
+                                <label class="control-label">用户支付接口(如不了解 请不要随意修改)</label>
+                                <input type="text" class="form-control"  name="pay" value="{$list['pay']}"/>
+                            </div>    
+                          
+                          
+                            <div class="form-group">
+                                <label class="control-label">七天价格(如不填写，会默认弹出联系方式)</label>
+                                <input type="text" class="form-control"  name="vip1" value="{$list['vip1']}"  placeholder="默认3元" />
+                            </div>          
+                            <div class="form-group">
+                                <label class="control-label">一个月价格(如不填写，会默认弹出联系方式)</label>
+                                <input type="text" class="form-control"  name="vip2" value="{$list['vip2']}"  placeholder="默认8元" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">三个月价格(如不填写，会默认弹出联系方式)</label>
+                                <input type="text" class="form-control"  name="vip3" value="{$list['vip3']}"  placeholder="默认18元" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">六个月价格(如不填写，会默认弹出联系方式)</label>
+                                <input type="text" class="form-control"  name="vip4" value="{$list['vip4']}"  placeholder="默认38元" />
+                            </div>                 
+                            <div class="form-group">
+                                <label class="control-label">一年价格(如不填写，会默认弹出联系方式)</label>
+                                <input type="text" class="form-control" name="vip5" value="{$list['vip5']}"  placeholder="默认68元" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">永久价格(如不填写，会默认弹出联系方式)</label>
+                                <input type="text" class="form-control"  name="vip6" value="{$list['vip6']}"  placeholder="默认188元" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- 代理充值vip价格设置 -->
+            <div class="col-md-6">
+                <div class="panel panel-black" style="padding:10px 5px 10px 0px;">
+                    <div class="panel-heading my_panel_head">代理充值vip价格设置</div>
+                    <div class="panel-body">
+                      
+                      
+                          
+                             <div class="form-group">
+                                <label class="control-label">代理支付接口(如不了解 请不要随意修改)</label>
+                                <input type="text" class="form-control"  name="d_pay" value="{$list['d_pay']}"/>
+                            </div>    
+                          
+                      
+                        <div class="form-group">
+                            <label class="control-label">七天价格(如不填写，会默认弹出联系方式)</label>
+                            <input type="text" class="form-control"  name="d_vip1" value="{$list['d_vip1']}"  placeholder="默认1.5元" />
+                        </div>          
+                        <div class="form-group">
+                            <label class="control-label">一个月价格(如不填写，会默认弹出联系方式)</label>
+                            <input type="text" class="form-control"  name="d_vip2" value="{$list['d_vip2']}"  placeholder="默认4元" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">三个月价格(如不填写，会默认弹出联系方式)</label>
+                            <input type="text" class="form-control"  name="d_vip3" value="{$list['d_vip3']}"  placeholder="默认9元" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label">六个月价格(如不填写，会默认弹出联系方式)</label>
+                            <input type="text" class="form-control"  name="d_vip4" value="{$list['d_vip4']}"  placeholder="默认19元" />
+                        </div>                 
+                    
+                        <div class="form-group">
+                            <label class="control-label">一年价格(如不填写，会默认弹出联系方式)</label>
+                            <input type="text" class="form-control" name="d_vip5" value="{$list['d_vip5']}"  placeholder="默认38元" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">永久价格(如不填写，会默认弹出联系方式)</label>
+                            <input type="text" class="form-control"  name="d_vip6" value="{$list['d_vip6']}"  placeholder="默认128元" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">提交</button>
+                <button type="reset" class="btn btn-white">重置</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+    </div>
+
+</div>
+
+
+
+{$code=='2'?'
+<div class="col-md-6">
+    <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong> 糟糕 !</strong> 修改失败
+
+    </div>
+</div>
+
+':''}
+
+{$code=='1'?'<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 !</strong> 修改成功.
+    </div>
+</div>
+
+':''}
+<script>
+    setTimeout("$('#alert').fadeOut(1000)",2000)
+</script>

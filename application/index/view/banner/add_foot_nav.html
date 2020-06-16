@@ -1,0 +1,265 @@
+<div class="page has-sidebar-left  height-full">
+
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-pets"></i>
+                        底部导航图标
+                    </h4>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <ul class="nav nav-material nav-material-white responsive-tab" role="tablist">
+                    
+                <li><a class="nav-link  active show" href="<?php echo url('/index/banner/add_foot_nav'); ?>" ><i class="icon icon-pets"></i>添加</a></li>
+					
+				</ul>
+            </div>
+        </div>
+    </header>
+  
+  
+  
+  
+  
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="animated fadeInUpShort go">
+          <div class="container-fluid my-3">
+            <div class="row">
+                <div class="col-md-7 ">
+                         <form  role="form" id="form1"  method="post" action="{:url('banner/create')}" enctype="multipart/form-data">
+                           <input type="hidden" name='user_id' value='{$user_id}'/>  
+                        <div class="card no-b  no-r">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-8">
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">名称</label>
+                                            <input class="form-control r-0 light s-12 " name="name" required="required" placeholder="" type="text">
+                                          
+                                        </div>
+                                      
+      <!--                                    
+                                     <div class="form-group m-0">
+                                        <label for="address" class="col-form-label s-12">描述</label>
+                                        <input type="text" class="form-control r-0 light s-12" name="content" placeholder="">
+                                    </div>
+
+                                      
+
+                                        <div class="form-row">
+                                            <div class="form-group col-6 m-0">
+                                                <label for="cnic" class="col-form-label s-12"><i class="icon-fingerprint"></i>分类</label>
+   
+                                              
+                                        <select class="custom-select my-1 mr-sm-2 form-control r-0 light s-12" name="type">
+                     <option value="0"}>官方公告</option>
+                     <option value="1"}>最新消息</option>
+                     <option value="2"}>小编推荐</option>
+                                        </select>                   
+                                              
+      
+                                              
+                                            </div>
+               
+                              
+                                        </div>
+                                      
+                            -->          
+                                                                                
+                                   <div class="form-row"> 
+                                     
+                                    
+                                      <div class="form-group m-0">
+    
+                                        
+                                        
+                                        
+                                       <label for="cnic" class="col-form-label s-12">分类( 此项必选 ）</label>
+   
+                                              
+                                        <select class="custom-select my-1 mr-sm-2 form-control r-0 light s-12" id="cid" name="cid">
+          
+                             <option value="14">底部导航图标</option>
+                  
+                                        </select>                   
+                                                      
+                                        
+                                    </div> 
+                       </div>
+                                                                          
+                 
+                                      
+                                      
+                                 <div class="form-row"> 
+ 
+                                      <div class="form-group col-3 m-0">
+                                        <label for="inputCity" class="col-form-label s-12">排序</label>
+                                        <input type="text" class="form-control r-0 light s-12" name="sort">
+                                    </div>
+                                        
+                                     
+                                     </div>
+                                      
+                                      
+                                      
+
+                          </div>
+                                  
+                                  
+                                  
+
+                                  
+                                  
+                                    <div class="col-md-3 offset-md-1">
+									
+				
+		<div style=" min-height: 150px; border: 2px solid rgba(0,0,0,.3); background: #fff; padding: 20px 20px; border: 2px dashed #e1e8ee; ">
+           <div class="btn btn-primary btn-xs">添加图片</div>
+          <input type="file" id="picurl" onchange="changeImg(this)" name="picurl" required="required" multiple="" accept="image/png,image/gif,image/jpeg,image/jpg" style="width: 200px;height: 36px; position: absolute; left: -100px; top: 0; z-index:1; -moz-opacity: 0; -ms-opacity: 0; -webkit-opacity: 0; opacity: 0; filter: alpha(opacity=0);cursor: pointer; ">
+
+            <img id="RyanImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKTWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVN3WJP3Fj7f92UPVkLY8LGXbIEAIiOsCMgQWaIQkgBhhBASQMWFiApWFBURnEhVxILVCkidiOKgKLhnQYqIWotVXDjuH9yntX167+3t+9f7vOec5/zOec8PgBESJpHmomoAOVKFPDrYH49PSMTJvYACFUjgBCAQ5svCZwXFAADwA3l4fnSwP/wBr28AAgBw1S4kEsfh/4O6UCZXACCRAOAiEucLAZBSAMguVMgUAMgYALBTs2QKAJQAAGx5fEIiAKoNAOz0ST4FANipk9wXANiiHKkIAI0BAJkoRyQCQLsAYFWBUiwCwMIAoKxAIi4EwK4BgFm2MkcCgL0FAHaOWJAPQGAAgJlCLMwAIDgCAEMeE80DIEwDoDDSv+CpX3CFuEgBAMDLlc2XS9IzFLiV0Bp38vDg4iHiwmyxQmEXKRBmCeQinJebIxNI5wNMzgwAABr50cH+OD+Q5+bk4eZm52zv9MWi/mvwbyI+IfHf/ryMAgQAEE7P79pf5eXWA3DHAbB1v2upWwDaVgBo3/ldM9sJoFoK0Hr5i3k4/EAenqFQyDwdHAoLC+0lYqG9MOOLPv8z4W/gi372/EAe/tt68ABxmkCZrcCjg/1xYW52rlKO58sEQjFu9+cj/seFf/2OKdHiNLFcLBWK8ViJuFAiTcd5uVKRRCHJleIS6X8y8R+W/QmTdw0ArIZPwE62B7XLbMB+7gECiw5Y0nYAQH7zLYwaC5EAEGc0Mnn3AACTv/mPQCsBAM2XpOMAALzoGFyolBdMxggAAESggSqwQQcMwRSswA6cwR28wBcCYQZEQAwkwDwQQgbkgBwKoRiWQRlUwDrYBLWwAxqgEZrhELTBMTgN5+ASXIHrcBcGYBiewhi8hgkEQcgIE2EhOogRYo7YIs4IF5mOBCJhSDSSgKQg6YgUUSLFyHKkAqlCapFdSCPyLXIUOY1cQPqQ28ggMor8irxHMZSBslED1AJ1QLmoHxqKxqBz0XQ0D12AlqJr0Rq0Hj2AtqKn0UvodXQAfYqOY4DRMQ5mjNlhXIyHRWCJWBomxxZj5Vg1Vo81Yx1YN3YVG8CeYe8IJAKLgBPsCF6EEMJsgpCQR1hMWEOoJewjtBK6CFcJg4Qxwicik6hPtCV6EvnEeGI6sZBYRqwm7iEeIZ4lXicOE1+TSCQOyZLkTgohJZAySQtJa0jbSC2kU6Q+0hBpnEwm65Btyd7kCLKArCCXkbeQD5BPkvvJw+S3FDrFiOJMCaIkUqSUEko1ZT/lBKWfMkKZoKpRzame1AiqiDqfWkltoHZQL1OHqRM0dZolzZsWQ8ukLaPV0JppZ2n3aC/pdLoJ3YMeRZfQl9Jr6Afp5+mD9HcMDYYNg8dIYigZaxl7GacYtxkvmUymBdOXmchUMNcyG5lnmA+Yb1VYKvYqfBWRyhKVOpVWlX6V56pUVXNVP9V5qgtUq1UPq15WfaZGVbNQ46kJ1Bar1akdVbupNq7OUndSj1DPUV+jvl/9gvpjDbKGhUaghkijVGO3xhmNIRbGMmXxWELWclYD6yxrmE1iW7L57Ex2Bfsbdi97TFNDc6pmrGaRZp3mcc0BDsax4PA52ZxKziHODc57LQMtPy2x1mqtZq1+rTfaetq+2mLtcu0W7eva73VwnUCdLJ31Om0693UJuja6UbqFutt1z+o+02PreekJ9cr1Dund0Uf1bfSj9Rfq79bv0R83MDQINpAZbDE4Y/DMkGPoa5hpuNHwhOGoEctoupHEaKPRSaMnuCbuh2fjNXgXPmasbxxirDTeZdxrPGFiaTLbpMSkxeS+Kc2Ua5pmutG003TMzMgs3KzYrMnsjjnVnGueYb7ZvNv8jYWlRZzFSos2i8eW2pZ8ywWWTZb3rJhWPlZ5VvVW16xJ1lzrLOtt1ldsUBtXmwybOpvLtqitm63Edptt3xTiFI8p0in1U27aMez87ArsmuwG7Tn2YfYl9m32zx3MHBId1jt0O3xydHXMdmxwvOuk4TTDqcSpw+lXZxtnoXOd8zUXpkuQyxKXdpcXU22niqdun3rLleUa7rrStdP1o5u7m9yt2W3U3cw9xX2r+00umxvJXcM970H08PdY4nHM452nm6fC85DnL152Xlle+70eT7OcJp7WMG3I28Rb4L3Le2A6Pj1l+s7pAz7GPgKfep+Hvqa+It89viN+1n6Zfgf8nvs7+sv9j/i/4XnyFvFOBWABwQHlAb2BGoGzA2sDHwSZBKUHNQWNBbsGLww+FUIMCQ1ZH3KTb8AX8hv5YzPcZyya0RXKCJ0VWhv6MMwmTB7WEY6GzwjfEH5vpvlM6cy2CIjgR2yIuB9pGZkX+X0UKSoyqi7qUbRTdHF09yzWrORZ+2e9jvGPqYy5O9tqtnJ2Z6xqbFJsY+ybuIC4qriBeIf4RfGXEnQTJAntieTE2MQ9ieNzAudsmjOc5JpUlnRjruXcorkX5unOy553PFk1WZB8OIWYEpeyP+WDIEJQLxhP5aduTR0T8oSbhU9FvqKNolGxt7hKPJLmnVaV9jjdO31D+miGT0Z1xjMJT1IreZEZkrkj801WRNberM/ZcdktOZSclJyjUg1plrQr1zC3KLdPZisrkw3keeZtyhuTh8r35CP5c/PbFWyFTNGjtFKuUA4WTC+oK3hbGFt4uEi9SFrUM99m/ur5IwuCFny9kLBQuLCz2Lh4WfHgIr9FuxYji1MXdy4xXVK6ZHhp8NJ9y2jLspb9UOJYUlXyannc8o5Sg9KlpUMrglc0lamUycturvRauWMVYZVkVe9ql9VbVn8qF5VfrHCsqK74sEa45uJXTl/VfPV5bdra3kq3yu3rSOuk626s91m/r0q9akHV0IbwDa0b8Y3lG19tSt50oXpq9Y7NtM3KzQM1YTXtW8y2rNvyoTaj9nqdf13LVv2tq7e+2Sba1r/dd3vzDoMdFTve75TsvLUreFdrvUV99W7S7oLdjxpiG7q/5n7duEd3T8Wej3ulewf2Re/ranRvbNyvv7+yCW1SNo0eSDpw5ZuAb9qb7Zp3tXBaKg7CQeXBJ9+mfHvjUOihzsPcw83fmX+39QjrSHkr0jq/dawto22gPaG97+iMo50dXh1Hvrf/fu8x42N1xzWPV56gnSg98fnkgpPjp2Snnp1OPz3Umdx590z8mWtdUV29Z0PPnj8XdO5Mt1/3yfPe549d8Lxw9CL3Ytslt0utPa49R35w/eFIr1tv62X3y+1XPK509E3rO9Hv03/6asDVc9f41y5dn3m978bsG7duJt0cuCW69fh29u0XdwruTNxdeo94r/y+2v3qB/oP6n+0/rFlwG3g+GDAYM/DWQ/vDgmHnv6U/9OH4dJHzEfVI0YjjY+dHx8bDRq98mTOk+GnsqcTz8p+Vv9563Or59/94vtLz1j82PAL+YvPv655qfNy76uprzrHI8cfvM55PfGm/K3O233vuO+638e9H5ko/ED+UPPR+mPHp9BP9z7nfP78L/eE8/sl0p8zAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAgnSURBVHja7J3RcdpKFIb/ZPx+xRNvhFuB5QqsVBBSQeQKTCowqcCkAkgFJhUEVxBSQcBvfgIq4D5oGZMbZO0iCa2k75thMhNkjcTq0zlntbt6s9vtBADHectPAIAgAAgCgCAACAKAIAAIAoAgAAgCgCAAgCAACAKAIAAIAoAgAAgCgCAACAKAIAAIAgAIAoAgAAgCgCAACAKAIAAIAoAgAAgCAAgCYMFF1Qfw9LwuYjfX5t+IJvWCufn3MWvDXreDICUQSPogaWA+4C8z8/kuaUOKVS59SRNJa0lT5KgFA9NWa9N2fQQpT4zfkmKuudoSmzasjShva/Kj/kSMxolSizb1XZA7c7cJuKYaRyBp8vS8vvP5IN9U/RLPlF6swIhBjdGeQv6m1+14V8T72ouFHO0r5CXpIxEkO4KMTGp1Co9ca15wfeLffel1OyMESRckNtHDlq2SLsSZXh5OgR9EJjLEkv5x+LubXrczRZC/Bekr6dkILMUYm8+Ga9H7YnzokBVsJF31up2lDwfvUy/WyFKOlbk7jZCjFmxMW12ZtrMRyps0y5cI0lfyACmLX0YOxKhvNJlLurTY9l8foogvEcTmjrFCjkZEk8gykngRRXyIIIGScTpZNUckacE11ghCU29m0an62YgPEWRgsc0YORrFQtKXgq6N1guy77GCZjE2bYsgGXzI+H5K3dHYemSa89potiBPz+vIYrMp11JjmRd0jTQ6gmSlV9QezWXm+wFWLUjW3QE5mk/W+LmQCAKQToAgAKRYAAgCgCAACAIACAKAIAAIAoAgAAgCgCAANeCCnyCVayWDKftKBsxtJC2VDKB8FAMpEaSl9JUsXhdlbDeV9FlM5iLFahG3ShYTiCy2jR22BQSpPUMl86QDx2jzQxXPWQAEOUdalec9FbzDBEEaTd4LPJRHy2UCghRJVFAdcet5FCHCIcjJd38f91U0D6rZG2YRBEHOxUgv7+sABHHisuGCDPTSAfGJ5kYQV7YF7mvj2bn19ecbu0LSLARxZeHpvoooyh+OFOekWQjixNLTfeXlPiXlI81CECfmBaZqc0/OKTaftDqJNAtBnNKirwXsZ+TJ+YQmemQV7oAgThf3KsffP8qPd5ik1R2kWQiSi80rKYlNahV7ch4Ty/SJNAtBTqpFrpS8SdclcoSeFOcjx9SJNAtBTqpHQouaZKtkslTkiRyR3Ecjk2ZZwIzC4wzNJzLChCYNWxgh5h4da9/UHacU83351TWNIDVMu+aeH6NNUf5amjWmmUmxmspE+cZ/kWYhSGOJlb/3bJ9mAYI0ilDZDwNd0ixAkMYQqNg58KRZCELdQZqFIG1gWFJKRJqFILUnKrDuIM1CkMbVHQ8l7p80C0FqzQ+Vv2wPaRaC1JKxzrMYBGkWgtSOWMmCdOeANAtBznKRFbmv+zMfP2kWgpR6t/9ZkCSBqlkQG0EQpDQ59utPFXHXv1c1i9Bd0pQIUqYcUvK8Is6xv6Gqm8IbiBcCIUiBRP+T4zACnJIeVVF3kGYhSGkF+cMrd+LhCXfvHx6c1zVNiyBFyJH18O5Obt2meWYGFsmW5kWQsuXYM7Hc59iD3H8r6SM1CIKcS459jZKV0w90voeBafwy0W5GEyPIueSwKdhDhyhTphyReN87glQgh8ydeZhSlFf9dlzkQJBK5dhze6Rgr+ph4GHNMUAOBKlajn20OHy+Eav69XzHYtG4TFg4rnw5DovxfTpTdd2xktvrGkJJ70wUXJjUbIMgyFF0fTDx5PzGDts+6O+euKWSLuEFKRZyFElffsy5mFluN9Txbuq+yp0CjCAtlMMXfjnUHoMM2UMEQY6m4ZIWvbPofEAQ5GgUS4dt+22/MBCkXXIAgiAHIAhyAIIgByAIcrSdBYIgB6Sz9Fmgt8gBFTNV+jTfVa/bmSEIcrSWXrezMe3z/UCUraRv8uBJ/QVygAeSLOXpckMXyFFrVkpG5u7z9Dm6IQhyJOnHWC0Ybo4gyOEaMWIiBYIgx9+wwEIFNK0XK1D1K4UgBxHEW0ZKuggfG3ROG5NWIQeC5GZIkwIpFgCCACAIADUIlEpf2YsrlMWlpF2eHTw9r4/997bX7SwQBPIyUbVLmI7L2vHT83ou6caM0yLFAmdGqn593zKJ5MHidAhSXz604BzDp+d1jCBw0sXTohoLQcCZFT8BgkA6i5ac5xRB4NQivel8phcL8kSQf5XM5W7S4MyVOaf3vW5nXPXB8Byk3ixV7lzurIeA75Vz8lav26EGAaBIB0AQAAQBAAQB8F+Qecb3lzQREEHSCdSeMUeAIH/S63bmFpvFNBO0OYJ8z/j+k1h4GlosyMwizRrSVIAg6dxSi0BbBdkoWa08K4o8kGpBGwWR7IZu98WLcKClgiwtoohMmvWTdAvaJsg+imwdIskd0QTaJMhS9r1VgRHqt6R7IgqUhW8TpqYmQtw5iDI8EGtOk/7BQi+dIEt+Dnfe7Ha7Sg8gZenJmdqx7tM5+Si7LvVDmFHo6XHFyn7CDm5M+AmaI8hGyVzrLzRRYQRKlvOEBgiyZyTpRna9W1A8jwjiP/vC/RvXayWR/DWWCOJPQ8VK1oFClNPYnlBQD1/57iuC+MfSiNIxqReFvL0c8Ym/95X5nVcHaddntWSEta/dvK7si89QPF0/Fn2n8vQ10r5381YuCAApFgCCACAIAIIAAIIAIAgAggAgCACCACAIAIIAIAgAggAgCAAgCACCACAIAIIAIAgAggAgCACCACAIACAIAIIAIAgAggAgCACCACAIQN35bwAmNaAjS3MwmQAAAABJRU5ErkJggg==">
+            <div id="RyanDiv"></div>
+        </div>
+		
+		
+        <script type="text/javascript">            
+            //判断浏览器是否支持FileReader接口
+            if (typeof FileReader == 'undefined') {
+                document.getElementById("RyanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
+                //使选择控件不可操作
+                document.getElementById("picurl").setAttribute("disabled", "disabled");
+            }
+
+            //选择图片，马上预览
+            function changeImg(obj) {
+                var file = obj.files[0];
+                
+                console.log(obj);console.log(file);
+                console.log("file.size = " + file.size);  //file.size 单位为byte
+
+                var reader = new FileReader();
+
+                //读取文件过程方法
+                reader.onloadstart = function (e) {
+                    console.log("开始读取....");
+                }
+                reader.onprogress = function (e) {
+                    console.log("正在读取中....");
+                }
+                reader.onabort = function (e) {
+                    console.log("中断读取....");
+                }
+                reader.onerror = function (e) {
+                    console.log("读取异常....");
+                }
+                reader.onload = function (e) {
+                    console.log("成功读取....");
+
+                    var img = document.getElementById("RyanImg");
+                    img.src = e.target.result;
+                    //或者 img.src = this.result;  //e.target == this
+                }
+
+                reader.readAsDataURL(file)
+            }
+        </script>
+
+		
+											
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg"><i class="icon-save mr-2"></i>保存发布</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+              
+              
+              
+              
+          <div class="col-md-5">
+                                  <h3>轮播 / 广告设置帮助</h3>
+                                  <hr>
+                                  <p>1.推荐尺寸（ 像素 ）</p>
+            					   <p>首页轮播Banner	 <span class="badge badge-primary">400*180</span>  </p>
+            					   <p>横幅	 <span class="badge badge-primary">400*120</span>  </p>
+            					   <p>首页2列广告位	 <span class="badge badge-primary">80*80</span>   <span class="badge badge-primary">100*100</span> </p>
+            					   <p>分类顶部图片	 <span class="badge badge-primary">80*80</span>   <span class="badge badge-primary">100*100</span> </p>
+            					   <p>分类推荐	 <span class="badge badge-primary">80*80</span> <span class="badge badge-primary">100*100</span>  </p>
+                                  <hr>
+                                  <p>2.APP内部跳转</p>
+                                  <p style="color: #03a9f4;">方法：在跳转地址中输入下方要跳转的页面名字即可.</p>
+            						支持调转地址：<br><br>
+            											<span class="badge badge-primary">设置中心</span> 
+            											<span class="badge badge-primary">我的佣金</span> 
+            											<span class="badge badge-primary">佣金明细</span><br><br>
+            											<span class="badge badge-primary">我的佣金</span> 
+            											<span class="badge badge-primary">私人视频</span>
+            											<span class="badge badge-primary">升级会员</span><br><br> 
+            											<span class="badge badge-primary">直播专题</span>
+            											<span class="badge badge-primary">我的团队</span> 
+            											<span class="badge badge-primary">提现记录</span><br><br>
+            											<span class="badge badge-primary">邀请好友</span> 
+            											<span class="badge badge-primary">搜索页面</span>
+            											<span class="badge badge-primary">搜索页面</span> <br><br>
+            											<span class="badge badge-primary">观看记录</span>
+            											<span class="badge badge-primary">我的积分</span>
+            											<span class="badge badge-primary">观看记录</span><br><br>
+            											<span class="badge badge-primary">帮助中心</span>
+            											<span class="badge badge-primary">我的激活码</span>
+            											<span class="badge badge-primary">游戏直播间</span><br><br>
+            											<span class="badge badge-primary">公告列表</span>
+            											<span class="badge badge-primary">专属客服</span>
+                                  <p>暂时只开放这么多了</p>
+            
+           						  <br>
+            					 <p>3.图片支持格式</p>
+                                  <p><i class="icon-check3 text-primary   mr-3"></i> <span class="badge badge-primary">png</span> <span class="badge badge-primary">gif</span> <span class="badge badge-primary">jpeg</span> <span class="badge badge-primary">jpg</span></p>
+                                  <p><i class="icon-close2 pink-text mr-3"></i> <span class="badge badge-danger">PNG</span> <span class="badge badge-danger">GIF</span> <span class="badge badge-danger">JPG</span> <span class="badge badge-danger">……</span></p>
+                                
+                                  <p>4.图片建议尺寸（像素）：80*80  -  100*100   /  100*200</p>
+                                  <p>5.图片建议小于200KB.</p>
+            
+                               
+                                  <hr>
+                                  <h4 class="mt-5">未完待续</h4>
+                                  <a href="#" target="_blank" class="btn btn-outline-primary btn-xs">Perfect Network Service</a>
+                                
+                              </div>   
+              
+              
+              
+              
+              
+              
+              
+              
+            </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+    {$code?'
+    <div class="col-md-6">
+        <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong> 糟糕 !</strong> '.$code.'
+        </div>
+    </div>
+    
+    ':''}

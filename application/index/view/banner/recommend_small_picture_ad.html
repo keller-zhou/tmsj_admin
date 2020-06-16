@@ -1,0 +1,102 @@
+<div class="page  has-sidebar-left height-full">
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-image"></i>
+                        推荐页 - 横幅小图 / 广告设置
+                    </h4>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <ul class="nav nav-material nav-material-white responsive-tab" role="tablist">
+                    
+                <li><a class="nav-link  active show" href="<?php echo url('/index/banner/recommend_small_picture_ad'); ?>" ><i class="icon icon-photo2"></i>推荐页 - 横幅小图</a></li>
+				<li><a class="nav-link"  href="<?php echo url('/index/banner/add'); ?>"><i class="icon icon-plus-circle"></i> 添加</a></li>
+					
+				</ul>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3" >
+            <div class="tab-pane animated fadeInUpShort go  active show"  role="tabpanel" aria-labelledby="v-pills-all-tab">
+                 <div class="row">
+                   
+
+                   
+                    {volist name="list" id="vo"}
+                    <div class="col-md-3 my-3">
+                        <div class="card no-b">         
+                          
+                            <div class="card-body text-center p-3">
+                              
+ 					 <span class="badge badge-Secondary badge-mini  shadow1" style=" margin-top: 10px; margin-right: 10px; "> {$vo.sort} </span>
+                              
+                                <div class="">                            
+                     
+                                    <img src="{$vo.picurl}" alt="User Image">
+                                </div>
+                                <div>
+                                    <h6 class="p-t-10">  {$vo.name}  </h6>
+                                  <!--描述  {$vo.content} -->
+                                  <small style="display: inline-block; white-space: nowrap; width: 100%; overflow: hidden; text-overflow:ellipsis;">{$vo.linkurl}</small>
+                                </div>
+                              <br>
+                              <a href="{:url('banner/update',['id'=>$vo['id']])}" title="编辑" class="btn-fab btn-fab-sm btn-primary shadow text-white" style=" margin-right: 20px; "><i class="icon-pencil"></i></a>
+                              <a href="{:url('banner/del',['id'=>$vo['id']])}" title="删除" class="btn-fab btn-fab-sm btn-Danger shadow text-white"><i class="icon-close2"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    {/volist}
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                </div>      
+              
+        <!--      {$list->render()}  -->
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+{$code=='0'?'
+<div class="col-md-6">
+    <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong> 糟糕 !</strong> '.$msg.'
+    </div>
+</div>
+
+':''}
+{$code=='1'?'
+<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 !</strong> '.$msg.'.
+    </div>
+</div>
+
+':''}

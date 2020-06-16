@@ -1,0 +1,154 @@
+<div class="page has-sidebar-left  height-full">
+
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-film"></i>
+                        电影推荐
+                    </h4>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <ul class="nav nav-material nav-material-white responsive-tab" >
+                    <li>
+                        <a class="nav-link "  href="{:url('video/index')}" ><i class="icon-th-list"></i> 电影推荐列表</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" ><i class="icon icon-pencil"></i> 编辑</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+  
+
+  
+  
+  
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="animated fadeInUpShort go">
+          <div class="container-fluid my-3">
+            <div class="row">
+                <div class="col-md-7 ">
+                         <form  role="form" id="form1"  method="post" action="{:url('video/edit')}" enctype="multipart/form-data" >
+                           <input type="hidden" name="id" value="{$data['id']}">
+                        <div class="card no-b  no-r">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-8">
+                                      
+                                      
+                                      
+                                      
+        								  <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">图片</label>
+
+               							 <input type="file" class="form-control" name="img" />
+   
+                        
+                                        </div>                  
+                                      
+                                      
+                                      
+                                      
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">标题</label>
+                                            <input class="form-control r-0 light s-12 " name="title"   value="{$data['title']}"  required="required" placeholder="" type="text">
+                                          
+                                        </div>
+                                      
+                                      
+                                     <div class="form-group m-0">
+                                        <label for="address" class="col-form-label s-12">播放地址</label>
+                                        <input type="text" class="form-control r-0 light s-12" name="url" value="{$data['url']}"   placeholder="">
+                                    </div>
+                                       <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">详情介绍</label>
+                                            <input class="form-control r-0 light s-12 " name="content"   value="{$data['content']}"  required="required" placeholder="" type="text">
+                                        </div>									
+                                       <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">类型</label>
+                                            <input class="form-control r-0 light s-12 " name="type"   value="{$data['type']}"  required="required" placeholder="" type="text">
+                                        </div>
+                                      
+         
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">地区</label>
+                                            <input class="form-control r-0 light s-12 " name="region" value="{$data['region']}" required="required" placeholder="" type="text">
+                                        </div>
+                                      
+                                      
+
+                          </div>
+                                  
+                
+                                  
+                                  
+                                    <div class="col-md-3 offset-md-1">
+									
+				
+		<div style=" min-height: 250px; border: 2px solid rgba(0,0,0,.3); background: #fff; padding: 20px 20px; border: 2px dashed #e1e8ee; ">
+           <img src="{$data['img']}">
+        </div>
+		
+		
+     
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <hr>
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg"><i class="icon-save mr-2"></i>保存发布</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+              
+              
+              
+              
+          <div class="col-md-5">
+                                  <h3>电影推荐</h3>
+                                  <hr>
+                                  <p>资源可以到影视采集站查看</p>
+                                  <p>图片建议先压缩下 不宜过大</p>
+								  <p>类型：动作,喜剧,科幻,爱情,剧情,战争,纪录,惊悚,写真,伦理</p>
+            					  
+                                  <p>播放地址支持</p>
+                                  <p><i class="icon-check3 text-primary   mr-3"></i> <span class="badge badge-primary">M3U8</span> <span class="badge badge-primary">MP4</span> </p>
+
+                              </div>    
+              
+              
+              
+              
+              
+              
+              
+              
+            </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+{$code?'
+<div class="col-md-6">
+    <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong> 糟糕 !</strong> '.$code.'
+    </div>
+</div>
+
+':''}

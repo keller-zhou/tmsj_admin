@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+	<link href="/public/static/Ryan_share/ydui.css" rel="stylesheet">
+	<link rel="shortcut icon" href=style/favicon.ico type=image/x-icon>
+    <title>APP下载 - {$app_name}</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+</head>
+<body>
+	<style type="text/css">
+	    body{background-color: #fff;max-width:600px;text-align:center;margin:0 auto;}
+		#ppt{width: 100%;}
+		#main{width: 100%;padding: 0% 10%;text-align: center;margin: auto;}
+		#invite_code{width: 100%;margin-top: 30px;height: 40px;line-height: 40px;font-size: 15px;}
+		#invite_code .code{width: 60%;border: #f9617e  solid 1px;border-radius: 15px 0px 0px 15px;float: left;text-align: left;padding: 0px 20px;line-height:40px;text-align:center;font-size:18px;letter-spacing:1px;color: #fd5379;font-weight: bold;}
+		#fenge{color:#fff;float:left;}
+		#invite_code .copy{width: 40%;border: #fa6584  solid 1px;border-radius: 0px 15px 15px 0px;float: right;background: linear-gradient(270deg,#FF305E 0%,#Fb6e8e 100%); box-shadow: 0 0.06rem 0.16rem 0 rgba(243,74,88,.4);color: #fff;}
+		#note{width: 100%;color: #444; font-size: 14px; margin-top: 20px;}
+		#download{margin-top: 20px;}
+
+      #download a{background: linear-gradient(270deg,#FF305E 0%,#Fb6e8e 100%); box-shadow: 0 0.06rem 0.16rem 0 rgba(243,74,88,.4);color: #fff;font-size: 16px;border-radius: 20px;border: none;font-size: 15px;height: 40px;padding: 10px 30px;}
+		
+		#wechat_float{width:100%;height:100%;position:fixed;top:0px;right:0px;z-index:999;background: rgba(0,0,0,0.9 );color:#fff;display:none;}
+		#wechat_float img{float:right;margin-right:5%;}
+		#wechat_float p{float:right;font-size:15px;width:100%;padding:2% 15%;}
+		#wechat_float button{background-color:#fff;color:#333;padding:7px 30px;border:none;border-radius:8px;}
+	</style>
+	<div id="ppt">
+				<div class="slider-item">
+					<img src="{$wap_index_img}">
+				</div>
+
+	
+	</div>
+	
+	<div id="main">
+      
+      
+		<div id="download">
+		<!--	<a href="{$app_android_down}" type="android" style="margin-right: 10px;">安卓下载</a> 
+			<a href="{$app_ios_down}" type="ios">iOS下载</a>-->
+			<a   onclick="down()"  type="down"  style="margin-right: 10px;">下载APP</a> 
+	
+		</div>
+      
+          <br><br>
+      
+		<div id="invite_code">
+			<div class="code">{$share_ma}</div>
+			<div class="copy" data-clipboard-text="{$share_ma}">复制邀请码</div>
+			<div class="copy_a" data-clipboard-text="{$share_ma}"></div>
+		</div>
+		<div id="note">
+			<p>请先复制邀请码，用于激活APP使用资格！</p>
+		</div>
+	</div>
+	
+	<div id="wechat_float">
+	  
+   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANEAAADNCAYAAAAmLpUPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowOGJjYzhkZi0yZThhLTQ5NTktODk2MC1lZmM1Nzg2NDBkMDQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkIxMzBBNkUxNUU3MTFFNkFBNTNGMUIzMTRBQzIxNTMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkIxMzBBNkQxNUU3MTFFNkFBNTNGMUIzMTRBQzIxNTMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpmYmVkMDBkYS0zYTc3LTQ3NjAtYjIyZi01M2E4ODQ0ZWVlZjMiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMzNlNjc2YS1jZmM2LTExNzgtYTcy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" alt="浏览器打开" />
+	    <br><p>
+	        微信中不能下载，请在右上角选择“在浏览器中打开”
+	      <br><br>
+	        <button onclick="$('#wechat_float').hide();">知道了</button>
+	    </p>
+	</div>
+	<script src="/public/static/Ryan_share/jquery.min.js"></script>
+	<script src="/public/static/Ryan_share/ydui.js"></script>
+	<script src="/public/static/Ryan_share/clipboard.min.js"></script>
+  
+	<script type="text/javascript">
+ 
+      
+  var browser = {
+versions: function () {
+var u = navigator.userAgent, app = navigator.appVersion;
+return { //移动终端浏览器版本信息 
+ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端 
+android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器 
+iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器 
+iPad: u.indexOf('iPad') > -1, //是否iPad 
+};
+}(),
+}
+   
+      
+      
+      
+      
+      
+      
+      
+            //点击下载
+            $('#download a').click(function() {
+                //
+
+                    $('.copy_a').click();
+
+              
+              
+            });       
+      
+      
+      
+    /*  
+setInterval(startDebug, 100); // 举个例子而已，很多网站并不是这么实现的
+function startDebug() { debugger; };
+      
+      */
+      
+    function down(){
+      
+         
+                    $('.copy_a').click();
+      
+  
+                      if (is_wechat()) {
+                    //微信内置浏览器不能下载
+                    $('#wechat_float').fadeIn("fast");
+                    return false;
+                }
+
+      
+  if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
+  window.location.href ="{$app_ios_down}";
+}
+if (browser.versions.android) {
+  window.location.href ="{$app_android_down}";
+}     
+      
+   /*   
+ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+ // alert(navigator.userAgent); 
+  //           var iosShade = document.getElementById('iosShade')
+//            iosShade.style.display = 'block'
+
+} else if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+// alert(navigator.userAgent); 
+  window.location.href ="{$app_android_down}";
+} else { //pc
+  window.location.href ="{$app_android_down}";
+};
+      
+      */
+  }      
+      
+      
+      
+
+        $(function() {
+            //初始化数据
+            var invite_code = getQ('invite_code');
+            if (invite_code != '') {
+                $('.code').html(invite_code);
+                $('.copy').attr('data-clipboard-text', invite_code);
+                $('.copy_a').attr('data-clipboard-text', invite_code);
+            }
+            //点击复制
+            var clipboard = new Clipboard('.copy');
+          
+            clipboard.on('success',
+            function(e) {
+                oncopy = true;
+                YDUI.dialog.toast('邀请码已复制', 'success', 2000);
+            });
+          
+            clipboard.on('error',
+            function(e) {
+                oncopy = true;
+                YDUI.dialog.toast('复制失败，请手动复制邀请码', 'error', 3000);
+            });
+          
+
+          
+
+            //点击复制 自动复制
+            var clipboard = new Clipboard('.copy_a');
+          /*
+            clipboard.on('success',
+            function(e) {
+                oncopy = true;
+                YDUI.dialog.toast('邀请码已复制-自动', 'success', 2000);
+            });
+          */
+            clipboard.on('error',
+            function(e) {
+                oncopy = true;
+                YDUI.dialog.toast('复制失败，请手动复制邀请码', 'error', 3000);
+            });
+                    
+          
+    
+        });      
+          
+          
+          
+      /*    
+            //点击下载
+            $('#download a').click(function() {
+                //
+            //    let type = $(this).attr('type');
+                if (is_wechat()) {
+                    //微信内置浏览器不能下载
+                    $('#wechat_float').fadeIn("fast");
+                    return false;
+                }
+
+              
+              
+            });  */
+        
+       function getQ(name) {
+            var r = window.location.search.substr(1);
+            var key = name + '=';
+            if (r.indexOf(key) == -1) return '';
+            r = r.substring(r.indexOf(key) + key.length);
+            if (r.indexOf('&') != -1) {
+                r = r.substring(0, r.indexOf('&'));
+            }
+            if (r == 'null' || r == null) {
+                return '';
+            }
+            return r;
+        }
+       
+        function is_wechat(){
+            var ua = window.navigator.userAgent.toLowerCase();
+            //通过正则表达式匹配ua中是否含有MicroMessenger字符串
+            if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+                return true;
+            }else{
+                return false;
+            }
+        }
+	</script>
+	
+
+</body>
+</html>

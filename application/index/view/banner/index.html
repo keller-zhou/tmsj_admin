@@ -1,0 +1,303 @@
+<div class="page  has-sidebar-left height-full">
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-image"></i>
+                        首页轮播 / 广告设置
+                    </h4>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <ul class="nav nav-material nav-material-white responsive-tab" role="tablist">
+                    
+                <li><a class="nav-link  active show" href="<?php echo url('/index/banner/index'); ?>" ><i class="icon icon-photo2"></i>首页轮播</a></li>
+				<li><a class="nav-link"  href="<?php echo url('/index/banner/add'); ?>"><i class="icon icon-plus-circle"></i> 添加</a></li>
+                        <?php if(session('power')=='0'){?>   
+				<li><a class="nav-link blink"  href="<?php echo url('/index/banner/banner_admin'); ?>"><i class="icon icon-beenhere"></i> 审核</a></li>
+                     <?php } ?> 
+                  
+					
+				</ul>
+            </div>
+        </div>
+    </header>
+  
+                  <?php $banner_switch  =  db('user')->where('id',session('user'))->value('banner_switch');   if(session('power')=='0'){?>
+    <div class="container-fluid animatedParent animateOnce">
+
+      
+        <div class="tab-content my-3" >
+
+            <div class="tab-pane animated fadeInUpShort go  active show"  role="tabpanel" aria-labelledby="v-pills-all-tab">
+                 <div class="row">
+                   
+
+                   
+                    {volist name="list" id="vo"}
+                    <div class="col-md-3 my-3">
+                        <div class="card no-b">         
+                          
+                            <div class="card-body text-center p-3">
+                              
+ 					 <span class="badge badge-Secondary badge-mini  shadow1" style=" margin-top: 10px; margin-right: 10px; "> {$vo.sort} </span>
+                              
+                                <div class="">                            
+                     
+                                    <img src="{$vo.picurl}" alt="User Image">
+                                </div>
+                                <div>
+                                    <h6 class="p-t-10">  {$vo.name}  </h6>
+                                  <!--描述  {$vo.content} -->
+                                  <small style="display: inline-block; white-space: nowrap; width: 100%; overflow: hidden; text-overflow:ellipsis;">{$vo.linkurl}</small>
+                                </div>
+                              <br>
+                              <a href="{:url('banner/update',['id'=>$vo['id']])}" title="编辑" class="btn-fab btn-fab-sm btn-primary shadow text-white" style=" margin-right: 20px; "><i class="icon-pencil"></i></a>
+                              <a href="{:url('banner/del',['id'=>$vo['id']])}" title="删除" class="btn-fab btn-fab-sm btn-Danger shadow text-white"><i class="icon-close2"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    {/volist}
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                </div>      
+              
+        <!--      {$list->render()}  -->
+
+            </div>
+
+
+        </div>
+      
+      
+      
+    </div>
+  
+         <?php } else if(session('power')=='1'and $banner_switch=='1'){?>   
+        <!--代理 and Y-->
+  
+  
+  
+      <div class="container-fluid animatedParent animateOnce">
+      
+                    
+          <div class="card my-3 shadow b-0">
+            <div class="row no-gutters">
+ 
+                <div class="col-md-12 col-sm-12 white">
+                    <div class="">
+                        <div class="card-body  chat-widget p-3">
+                            <div class="w-body w-scroll ">
+                                <ul class="list-unstyled">
+                                 
+                                    <li class="by-me">
+                                        <div class="avatar float-left">
+                                            <b class="c-on"></b>
+                                          <span class="btn-fab btn-fab-sm btn-Danger shadow1" style=" text-align:center; ">
+                                            <i class="icon-child_care s-18"></i>
+                                        </span>   
+                                          
+                                      </div>
+            
+                                        <div class="chat-content">
+                                            <div class="chat-meta">系统提示：
+                                                <span class="float-right">System</span>
+                                            </div>
+                                          
+                      
+                           					  <div class="chat-meta">
+                                            根据您当前账户级别已为您开放
+                                           <span class="badge badge-primary  shadow1 "> <i style="font-weight:bold"> {$banner_number} </i> </span>  
+                                           个轮播广告使用权 ! 您已使用
+                                                   <span class="badge badge-danger shadow1 "> <i class="blink " style="font-weight:bold"> {$yy_banner_number} </i> </span>  <br> <br>
+                                                Tips:提交审核中的不允许修改删除,审核通过的只允许删除.驳回的允许修改后再次提交.
+                                          </div>
+
+                                          
+                                          
+                                        </div>  
+                                    </li>
+            
+ 							      </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+      
+      
+      
+        <div class="tab-content my-3" >
+
+            <div class="tab-pane animated fadeInUpShort go  active show"  role="tabpanel" aria-labelledby="v-pills-all-tab">
+                 <div class="row">
+                   
+
+                   
+                    {volist name="list" id="vo"}
+                    <div class="col-md-3 my-3">
+                        <div class="card no-b">         
+                          
+                            <div class="card-body text-center p-3">
+		
+                                <div class="">                            
+                     
+                                    <img src="{$vo.picurl}" >
+                                </div>
+                                <div>
+                                    <h6 class="p-t-10">  {$vo.name}  </h6>
+                                  <!--描述  {$vo.content} -->
+                                  <small style="display: inline-block; white-space: nowrap; width: 100%; overflow: hidden; text-overflow:ellipsis;">{$vo.linkurl}</small>
+                                </div>
+                              <br>
+                              
+                              
+                              
+                                                            
+                              
+                              <?php  if($vo['audit']=='1')  { ?>
+                                <a href="{:url('banner/del',['id'=>$vo['id']])}" title="删除" class="btn-fab btn-fab-sm btn-Danger shadow text-white" style=" margin-right: 20px; "><i class="icon-close2"></i></a>
+                              <span class="badge badge-danger "><span class="blink"><i class="icon icon-circle mr-2"></i>审核通过 展示中</span></span>
+
+                              <?php  }else if($vo['audit']=='2'){  ?>  
+                              
+                                <span class="btn btn-outline-primary btn-xs"><i class="icon-more_horiz"></i> 正在审核 </span>
+
+                              <?php  }else if($vo['audit']=='3'){  ?>                      
+                              <a href="{:url('banner/update',['id'=>$vo['id']])}" title="编辑" class="btn-fab btn-fab-sm btn-primary shadow text-white" style=" margin-right: 20px; "><i class="icon-pencil"></i></a>
+                                <a href="{:url('banner/del',['id'=>$vo['id']])}" title="删除" class="btn-fab btn-fab-sm btn-Danger shadow text-white"  style=" margin-right: 20px; "><i class="icon-close2"></i></a>
+                            
+                                <span class="btn btn-outline-Danger  btn-xs"><i class="icon-close2"></i> 驳回修改 </span>
+                              <?php  }else {  ?>
+                                <a href="{:url('banner/del',['id'=>$vo['id']])}" title="删除" class="btn-fab btn-fab-sm btn-Danger shadow text-white"  style=" margin-right: 20px; "><i class="icon-close2"></i></a>
+                              
+                                <span class="btn btn-outline-Danger btn-xs"><i class="icon-close2"></i> 未知状态 </span>
+
+                                <?php }  ?>	
+                              
+
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    {/volist}
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                </div>      
+              
+        <!--      {$list->render()}  -->
+
+            </div>
+
+
+        </div>
+      
+      
+      
+    </div>
+  
+
+  
+         <?php } else if(session('power')=='1'and $banner_switch=='2'){?>   
+          <!--代理 and S-->
+
+  
+  <div class="container-fluid pt-5">
+        <div class="text-center p-2">
+            <i class="icon-update s-64 text-primary"></i>
+            <h4 class="my-3">广告权限审核中</h4>
+            <p>尽量完善个人信息会提高审核通过率</p>
+        </div>
+    </div>
+  
+  
+  
+         <?php } else if(session('power')=='1'and $banner_switch=='0'){?>   
+            <!--代理 and N-->
+  
+  
+	<div class="container-fluid pt-5">
+        <div class="text-center p-2">
+            <i class="icon-warning2 s-64 text-primary blink"></i>
+            <h4 class="my-3">暂无广告管理权限</h4>
+            <p>完善个人信息后可以提交申请</p>
+              <form role="form" id="form1" method="post" action="{:url('banner/banner_switch')}" >
+              		<input type="hidden" name="banner_switch" >  
+           			<button class="btn btn-primary shadow btn-lg"  type="submit" ><i class="icon-local_florist mr-2 "></i>申请权限</button>
+             </form> 
+        </div>
+    </div>
+  
+  
+           <?php } else if(session('power')=='1'and $banner_switch=='3'){?>   
+            <!--代理 and J-->
+  
+  
+	<div class="container-fluid pt-5">
+        <div class="text-center p-2">
+            <i class="icon-warning2 s-64 text-primary blink"></i>
+            <h4 class="my-3">广告管理权限审核未通过</h4>
+            <p>完善个人信息后可以提交申请</p>
+              <form role="form" id="form1" method="post" action="{:url('banner/banner_switch')}" >
+              		<input type="hidden" name="banner_switch" >  
+           			<button class="btn btn-primary shadow btn-lg"  type="submit" ><i class="icon-local_florist mr-2 "></i>重新申请</button>
+             </form> 
+        </div>
+    </div>
+  
+                                              
+  
+  
+  
+  <?php } ?>
+
+</div>
+
+
+
+
+{$code=='0'?'
+<div class="col-md-6">
+    <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong> 糟糕 !</strong> '.$msg.'
+    </div>
+</div>
+
+':''}
+{$code=='1'?'
+<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 !</strong> '.$msg.'.
+    </div>
+</div>
+
+':''}

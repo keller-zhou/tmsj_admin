@@ -1,0 +1,261 @@
+<div class="page has-sidebar-left height-full">
+    <header class="blue accent-3 relative nav-sticky">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-yoast"></i>
+                        返佣设置
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white">
+                  
+				   <li><a class="nav-link active" href="{:url('vip/return_commissionr')}" role="tab"><i class="icon icon-yoast"></i>返佣设置</a></li>
+                  
+                </ul>
+              
+              <!--右侧
+                <a class="btn-fab fab-right btn-primary" data-toggle="control-sidebar">
+                    <i class="icon icon-menu"></i>
+                </a>
+              -->
+              
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid relative animatedParent animateOnce">
+        <div class="tab-content pb-3">
+  
+            <!--Yesterday Tab Start-->
+            <div class="tab-pane animated fadeInUpShort go active show">
+                   <div class="animatedParent animateOnce">
+                      <div class="container-fluid my-3">
+                          <div class="row clearfix">
+                            
+                            
+                            
+                              <div class="col-md-7">
+                                  <div class="card">
+                                      <div class="card-body b-b">
+                                          <form class="form-material"  role="form" id="form1" method="post" action="{:url('vip/return_commissionr')}">
+                                                        {volist name="list" id="vo"}
+                                              <!-- Input -->
+                                              <div class="body">
+
+                                                  <h6>佣金提现门槛</h6>
+                                                  <div class="row clearfix">
+                                                      <div class="col-sm-12">
+                                                          <div class="form-group">
+                                                              <div class="form-line focused">
+                                                                  <input type="number" class="form-control" value={$vo.jbday}  name="jbday" >
+                                                              </div>
+                                                          </div>
+
+                                                      </div>
+                                                  </div>
+
+                                                
+                                                
+                                    
+                                          <br>                
+                                          
+                                       <h5>代理权限返佣比例</h5>         
+								<hr>   
+                                                
+                                         <div class="row clearfix">
+
+                                        <div class="col-sm-6">
+											<div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control"  value={$vo.dljba} name="dljba">
+                                                    <label class="form-label">代理升级一级返佣 (上级) </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-6">
+											<div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control"  value={$vo.dljbb} name="dljbb">
+                                                    <label class="form-label">代理升级二级返佣 (上上级)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                                                               
+                                                
+          							 </div>                                           
+                                              
+                                          <br>                                             
+                                                
+                               
+                                                
+                                                
+                                                
+                                              <div class="row clearfix">
+
+                                        <div class="col-sm-6">
+											<div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control"  value={$vo.ckfa} name="ckfa">
+                                                    <label class="form-label">会员升级一级返佣 (上级) </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-6">
+											<div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control"  value={$vo.ckfb} name="ckfb">
+                                                    <label class="form-label">会员升级二级返佣 (上上级)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                                                               
+                                                
+          							 </div>                                           
+                                              
+                                          <br>    
+                                                
+                                                            
+                                    
+                                          <br>                
+                                          
+                                       <h5>普通用户返佣比例</h5>         
+								<hr>   
+                                                
+                                         <div class="row clearfix">
+
+                                        <div class="col-sm-6">
+											<div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control"  value={$vo.dljbc} name="dljbc">
+                                                    <label class="form-label">代理升级一级返佣 (上级)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-6">
+											<div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control"  value={$vo.dljbd} name="dljbd">
+                                                    <label class="form-label">代理升级二级返佣 (上上级)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                                                               
+                                                
+          							 </div>                                           
+                                              
+                                          <br>                                             
+                                                
+                               
+                                                
+                                                
+                                                
+                                              <div class="row clearfix">
+
+                                        <div class="col-sm-6">
+											<div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control"  value={$vo.ckfc} name="ckfc">
+                                                    <label class="form-label">会员升级一级返佣 (上级)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-6">
+											<div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control"  value={$vo.ckfd} name="ckfd">
+                                                    <label class="form-label">会员升级二级返佣 (上上级)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                                                               
+                                                
+          							 </div>                                           
+                                              
+                                          <br> 
+                                                                                             
+                                                
+                                                
+                                              </div>
+                                            
+                                                      {/volist}
+                                            
+                                              <!-- #END# Input -->
+                                              <button type="submit" class="btn btn-primary">确认</button>
+                                          </form>
+                                        
+                                      </div>
+                                    
+                                    
+
+                                    
+
+
+                                  </div>
+                              </div>
+                              <div class="col-md-5">
+                                  <hr>
+                                  <h3>返佣设置帮助</h3>
+                                
+                                
+                                  <a class="btn btn-xs btn-primary">佣金提现门槛 </a><br><br>
+                                单笔提现金额必须大于该值<br> 
+                                                                   
+
+                                 <hr>
+                                
+                                  <a class="btn btn-xs btn-primary">返佣比例 </a><br><br>
+                                返佣比例 1 为 100%<br> <br> 
+                                例：<br> 
+                                 0.5  ->  返佣 50% <br> 
+                                 0.1  ->  返佣 10% <br> 
+                                 0.01  ->  返佣 1% <br> <br> <br> 
+                                                                   
+								<b>代理权限返佣比例（高佣）：</b>获取返佣的账户权限为代理<br> <br>   
+								<b>普通用户返佣比例（低佣）：</b>获取返佣的账户权限为普通用户
+                                 <hr>
+
+                                
+                                
+                                
+                                  <h4 class="mt-5">未完待续……</h4>
+                                  <hr>
+								
+                                  <a class="btn btn-outline-primary btn-xs">Perfect Network Service</a>
+                                
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>						
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{$code=='1'?'<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 ! 修改成功了！</strong>
+    </div>
+</div>
+
+':''}

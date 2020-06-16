@@ -1,0 +1,294 @@
+<div class="page has-sidebar-left  height-full">
+
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-image"></i>
+                        轮播 / 广告设置
+                    </h4>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <ul class="nav nav-material nav-material-white responsive-tab" role="tablist">
+                    
+                <li><a class="nav-link  active show" href="/index/banner/add.html"><i class="icon icon-pencil"></i>编辑</a></li>
+					
+				</ul>
+            </div>
+        </div>
+    </header>
+  
+  
+  
+  
+  
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="animated fadeInUpShort go">
+          <div class="container-fluid my-3">
+            <div class="row">
+                <div class="col-md-7 ">
+                         <form  role="form" id="form1"  method="post" action="{:url('banner/edit')}" enctype="multipart/form-data" >
+                           <input type="hidden" name="id" value="{$data['id']}">
+                        <div class="card no-b  no-r">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-8">
+                                      
+                                      
+                                      
+                                      
+        								  <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">图片</label>
+
+               							 <input type="file" class="form-control" name="picurl" />
+   
+                        
+                                        </div>                  
+                                      
+                                      
+                                      
+                                      
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">标题</label>
+                                            <input class="form-control r-0 light s-12 " name="name"   value="{$data['name']}"  required="required" placeholder="" type="text">
+                                          
+                                        </div>
+                                      
+                                      
+                                     <div class="form-group m-0">
+                                        <label for="address" class="col-form-label s-12">描述</label>
+                                        <input type="text" class="form-control r-0 light s-12" name="content" value="{$data['content']}"  placeholder="">
+                                    </div>
+
+                                      
+    <!--
+                                        <div class="form-row">
+                                            <div class="form-group col-6 m-0">
+                                                <label for="cnic" class="col-form-label s-12"><i class="icon-fingerprint"></i>分类</label>
+   
+                                              
+                                        <select class="custom-select my-1 mr-sm-2 form-control r-0 light s-12" name="type">
+                     <option value="0"}>官方公告</option>
+                     <option value="1"}>最新消息</option>
+                     <option value="2"}>小编推荐</option>
+                                        </select>                   
+                                              
+      
+                                              
+                                            </div>
+               
+                              
+                                        </div>
+                                      
+                            -->          
+                       <?php if(session('power')=='0'){?>                                                          
+                                   <div class="form-row"> 
+                                     
+                                    
+                                      <div class="form-group m-0">
+    
+                                        
+                                        
+                                        
+                                       <label for="cnic" class="col-form-label s-12">分类( 此项必选 ）</label>
+
+
+
+                                  <select class="custom-select my-1 mr-sm-2 form-control r-0 light s-12"  id="cid" name="cid">
+                                    {volist name="category" id="vo"}
+                                         <option value="{$vo.id}" <?php if($vo['id']==$c){echo 'selected';}else{
+                                                echo '';
+                                               }?>>{$vo.cname}</option>
+                                    {/volist}
+                                </select>
+
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </div> 
+                       </div>
+                                                                   
+             
+                                  
+                                  
+                                                   
+                                      
+                                      
+                                 <div class="form-row"> 
+ 
+                                      <div class="form-group col-3 m-0">
+                                        <label for="inputCity" class="col-form-label s-12">排序</label>
+                                        <input type="text" class="form-control r-0 light s-12" name="sort"  value="{$data['sort']}"  >
+                                    </div>
+                                        
+                                     
+                                     </div>
+                                  
+                                  <?php } ?>    
+                                  
+                                  
+                                  
+
+                                      
+                                  
+                                     <?php if(session('power')=='1'){?>     
+                                  
+                                                                     <div class="form-row"> 
+                                     
+                                    
+                                      <div class="form-group m-0">
+    
+                                        
+                                        
+                                        
+                                       <label for="cnic" class="col-form-label s-12"> 分类( 此项必选 ）</label>
+
+
+
+                                  <select class="custom-select my-1 mr-sm-2 form-control r-0 light s-12"  id="cid" name="cid">
+                                   
+                                         <option value="1" >首页轮播</option>
+                      
+                                </select>
+
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </div> 
+                       </div>
+                                          
+                                  
+                                  
+                                    <?php } ?>   
+                                  
+
+                          </div>
+                                  
+                                  
+                                  
+
+                                  
+                                  
+                                    <div class="col-md-3 offset-md-1">
+									
+				
+		<div style=" min-height: 150px; border: 2px solid rgba(0,0,0,.3); background: #fff; padding: 20px 20px; border: 2px dashed #e1e8ee; ">
+           <img src="{$data['picurl']}">
+        </div>
+		
+		
+     
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                   <label class="col-form-label s-12">跳转地址</label>
+                                <div class="form-row">
+                                
+                             
+                                        <input type="text" class="form-control r-0 light s-12" name="linkurl"  value="{$data['linkurl']}" >
+                          
+                                </div>
+                          
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg"><i class="icon-save mr-2"></i>保存发布</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+              
+              
+              
+              
+          <div class="col-md-5">
+                                  <h3>轮播 / 广告设置帮助</h3>
+                                  <hr>
+                                  <p>1.推荐尺寸（ 像素 ）</p>
+            					   <p>首页轮播Banner	 <span class="badge badge-primary">400*180</span>  </p>
+            					   <p>横幅	 <span class="badge badge-primary">400*120</span>  </p>
+            					   <p>首页2列广告位	 <span class="badge badge-primary">80*80</span>   <span class="badge badge-primary">100*100</span> </p>
+            					   <p>分类顶部图片	 <span class="badge badge-primary">80*80</span>   <span class="badge badge-primary">100*100</span> </p>
+            					   <p>分类推荐	 <span class="badge badge-primary">80*80</span> <span class="badge badge-primary">100*100</span>  </p>
+                                  <hr>
+                                  <p>2.APP内部跳转</p>
+                                  <p style="color: #03a9f4;">方法：在跳转地址中输入下方要跳转的页面名字即可.</p>
+            						支持调转地址：<br><br>
+            											<span class="badge badge-primary">设置中心</span> 
+            											<span class="badge badge-primary">我的佣金</span> 
+            											<span class="badge badge-primary">佣金明细</span><br><br>
+            											<span class="badge badge-primary">我的佣金</span> 
+            											<span class="badge badge-primary">私人视频</span>
+            											<span class="badge badge-primary">升级会员</span><br><br> 
+            											<span class="badge badge-primary">直播专题</span>
+            											<span class="badge badge-primary">我的团队</span> 
+            											<span class="badge badge-primary">提现记录</span><br><br>
+            											<span class="badge badge-primary">邀请好友</span> 
+            											<span class="badge badge-primary">搜索页面</span>
+            											<span class="badge badge-primary">搜索页面</span> <br><br>
+            											<span class="badge badge-primary">观看记录</span>
+            											<span class="badge badge-primary">我的积分</span>
+            											<span class="badge badge-primary">观看记录</span><br><br>
+            											<span class="badge badge-primary">帮助中心</span>
+            											<span class="badge badge-primary">我的激活码</span>
+            											<span class="badge badge-primary">游戏直播间</span><br><br>
+            											<span class="badge badge-primary">公告列表</span>
+            											<span class="badge badge-primary">专属客服</span>
+                                  <p>暂时只开放这么多了</p>
+            
+           						  <br>
+            					 <p>3.图片支持格式</p>
+                                  <p><i class="icon-check3 text-primary   mr-3"></i> <span class="badge badge-primary">png</span> <span class="badge badge-primary">gif</span> <span class="badge badge-primary">jpeg</span> <span class="badge badge-primary">jpg</span></p>
+                                  <p><i class="icon-close2 pink-text mr-3"></i> <span class="badge badge-danger">PNG</span> <span class="badge badge-danger">GIF</span> <span class="badge badge-danger">JPG</span> <span class="badge badge-danger">……</span></p>
+                                
+                                  <p>4.图片建议尺寸（像素）：80*80  -  100*100   /  100*200</p>
+                                  <p>5.图片建议小于200KB.</p>
+            
+                               
+                                  <hr>
+                                  <h4 class="mt-5">未完待续</h4>
+                                  <a href="#" target="_blank" class="btn btn-outline-primary btn-xs">Perfect Network Service</a>
+                                
+                              </div>   
+              
+              
+              
+              
+              
+              
+              
+            </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+{$code?'
+<div class="col-md-6">
+    <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong> 糟糕 !</strong> '.$code.'
+    </div>
+</div>
+
+':''}

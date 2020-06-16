@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>APP下载 - {$app_name}</title>
+    <script>
+        !function (e) {
+            function t(n) {
+                if (i[n]) return i[n].exports;
+                var r = i[n] = {exports: {}, id: n, loaded: !1};
+                return e[n].call(r.exports, r, r.exports, t), r.loaded = !0, r.exports
+            }
+
+            var i = {};
+            return t.m = e, t.c = i, t.p = "", t(0)
+        }([function (e, t) {
+            "use strict";
+            Object.defineProperty(t, "__esModule", {value: !0});
+            var i = window;
+            t["default"] = i.vl = function (e, t) {
+                var n = e || 100, r = t || 690, a = i.document, d = navigator.userAgent,
+                    o = d.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i), l = d.match(/U3\/((\d+|\.){5,})/i),
+                    s = l && parseInt(l[1].split(".").join(""), 10) >= 80, u = a.documentElement, c = 1;
+                if (o && o[1] > 534 || s) {
+                    u.style.fontSize = n + "px";
+                    var p = a.createElement("div");
+                    p.setAttribute("style", "width: 1rem;display:none"), u.appendChild(p);
+                    var m = i.getComputedStyle(p).width;
+                    if (u.removeChild(p), m !== u.style.fontSize) {
+                        var v = parseInt(m, 10);
+                        c = 100 / v
+                    }
+                }
+                var f = a.querySelector('meta[name="viewport"]');
+                f || (f = a.createElement("meta"), f.setAttribute("name", "viewport"), a.head.appendChild(f)), f.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1");
+                var h = function () {
+                    u.style.fontSize = n / r * u.clientWidth * c + "px"
+                };
+                h(), i.addEventListener("resize", h)
+            }, e.exports = t["default"]
+        }]);
+        vl(100, 690);
+    </script>
+    <link rel="stylesheet" href="/public/static/qudao/css/reset.css">
+    <style type="text/css">
+        html,body {
+            width: 100%;
+            height: 100%;
+          /*  background: #f0433d; */
+          background: linear-gradient(to right, #f370af , #a241cf);
+            position: relative;
+        }
+        .download-box {
+            width: 100%;
+        }
+      .download-scroll {
+            width: 100%;
+            height: 0.66rem; 
+    /*          background: #f0433d;    */
+        }
+   
+        .download-content {
+            padding: 0.3rem 0;
+        }
+        .download-title {
+            text-align: center;
+            color: #fff;
+        }
+        .download-title dt , .download-title dd {
+            margin-bottom: 0.2rem;
+        }
+        .download-title dt span:nth-child(1) {
+            font-size: 0.4rem;
+        }
+        .download-title dt span:nth-child(2) {
+            font-size: 0.28rem;
+        }
+        .download-title dd span:nth-child(1) {
+            font-size: 0.58rem;
+        }
+        .download-titleImg img {
+            width: 4.18rem;
+        }
+        .download-titleBg {
+            width: 4.84rem;
+            height: 0.9rem;
+            background: url("/public/static/qudao/images/downloadyellowbg.png") no-repeat center;
+            background-size: 100% 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .download-title dd.download-titleBg span {
+            font-size: 0.3rem;
+            line-height: 0.7rem;
+        }
+        .download-money {
+            width: 5.38rem;
+            height: 1.57rem;
+            background: url("/public/static/qudao/images/download-money.png") no-repeat center;
+            background-size: 100% 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .download-money span {
+            display: block;
+        }
+        .download-money span:nth-child(1) {
+            font-size: 0.46rem;
+            color: #f04d47;
+        }
+        .download-money span:nth-child(2) {
+            font-size: 0.2rem;
+            color: #797878;
+        }
+        .download-money span.money-num {
+            font-size: 0.5rem;
+        }
+        .money-num b {
+            font-size: 0.28rem;
+            margin-left: 0.05rem;
+        }
+        .download-withdraw {
+            width: 1.8rem;
+            height: 0.54rem;
+            padding: 0.12rem 0.3rem;
+            background: #a643cd;
+            border-radius: 0.3rem;
+            color: #fff;
+            display: block;
+            font-size: 15px;
+            line-height: 0.3rem;
+            text-align: center;
+        }
+        .download-input {
+            width: 5.38rem;
+            border-radius: 0.2rem;
+            margin: 0.65rem auto 0.35rem;
+            position: relative;
+        }
+        .download-input div {
+            margin-bottom: 0.2rem;
+            position: relative;
+        }
+        .download-input input {
+            border: 0;
+            border-radius: 0.2rem;
+            width: 5.38rem;
+            height: 0.95rem;
+            padding-left: 0.7rem;
+            color: #979797;
+            margin: -1px;
+        }
+        .download-input .download-phone {
+            position: absolute;
+            top: 32%;
+            left: 0.3rem;
+            height: 0.32rem;
+        }
+        .download-input .download-wrong {
+            position: absolute;
+            top: 15%;
+            right: 0.3rem;
+            width: 0.38rem;
+            height: 0.38rem;
+            display: none;
+        }
+        input.vcode-btn {
+            display: inline-block;
+            width: 1.8rem;
+            position: absolute;
+            right: 0px;
+            top: 0;
+            text-align: center;
+            padding: 0.2rem;
+            font-size: 0.25rem;
+            color: #f0433d;
+            background: #fff;
+            border-left: 1px solid #f1f1f1;
+            border-radius: 0 0.2rem 0.2rem 0;
+        }
+        .download-app {
+            width: 5.38rem;
+            height: 0.95rem;
+            line-height: 0.95rem;
+         /*   background: #fff438;  */
+              box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+            background: -webkit-linear-gradient(top, #a241cf, #bb4fc6);
+            background: -o-linear-gradient(bottom, #a241cf, #bb4fc6);
+            background: -moz-linear-gradient(bottom, #a241cf, #bb4fc6);
+            background: linear-gradient(to bottom, #a241cf, #bb4fc6);
+          
+          
+            border-radius: 0.5rem;
+            margin: 0 auto 0.4rem;
+            text-align: center;
+        }
+        .download-appAnimation {
+            animation: scaleDraw 0.5s ease-in infinite;
+        }
+        @keyframes scaleDraw {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .download-app span {
+            display: block;
+            color: #fff;
+            font-size: 0.38rem;
+            font-weight: bold;
+        }
+        .download-remark {
+            font-size: 0.26rem;
+            line-height: 0.42rem;
+            color: #fff;
+            text-align: center;
+        }
+        .wrong-txt {
+            width: 100%;
+            font-size: 16px;
+            color: yellow;
+            position: absolute;
+            top: -26px;
+            text-align: center;
+            display: none;
+        }
+        .download-modal {
+            width: 6.9rem;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            position: fixed;
+            top:0;
+            z-index: 100;
+            display: none;
+        }
+        .download-modal div {
+            width: 70%;
+            height: 30%;
+            background: #fff;
+            margin: 62% auto 0;
+            padding: 12% 0;
+            text-align: center;
+            border-radius: 0.1rem;
+        }
+        .download-modal p {
+            margin-bottom: 0.15rem;
+        }
+        .download-modal p:nth-child(2) {
+            font-size: 0.35rem;
+        }
+        .download-modal p:nth-child(3) {
+            font-size: 0.25rem;
+            color: #bbbbbb;
+        }
+
+#shade,#iosShade{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background:rgba(0,0,0,.75);
+}
+#shade img{
+    position: absolute;
+    right: .1rem;
+    top:.1rem;
+    display: block;
+    width: 4.3rem;
+}
+
+      
+    </style>
+</head>
+<body>
+  
+    
+    <div id="shade" style="display: none">
+      <img src="/public/static/qudao/images/weixin.png">
+  </div>
+  
+    <div class="download-box">
+        <div class="download-scroll"></div>
+        <div class="download-content">
+            <div class="download-title">
+                <dl>
+                    <dd><span>{$app_name}   </span></dd><br>
+                    <dd class="download-titleBg"><span>全网VIP影视特权</span></dd>
+                    <dt>
+                        <span>{$user_name} </span> <span>送你一张VIP体验券</span>
+                    </dt>
+                    <!-- <dd class="download-titleImg"><i><img src="picture/downloadtitlespan.png" alt=""></i></dd> -->
+                </dl>
+            </div>
+            <div class="download-money">
+                <div>
+                    <span> {$Registered_Gift_Time} <em style="font-size: 15px;">Min</em></span>
+                    <span>观影特权快人一步</span>
+                </div>
+                <div>
+                    <span class="money-num"><strong></strong><b></b></span>
+                     <span><div   onClick="getZce()" class="download-withdraw">领取</div></span>
+                </div>
+            </div>
+            <div class="download-input">
+                    <i><img src="/public/static/qudao/images/download-phone.png" class="download-phone"></i>
+              <input id="phone" type="tel" name="telNumber" placeholder="请输入手机号领取" maxlength="11">
+            </div>
+            <div class="download-input">
+                    <i><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAKTWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVN3WJP3Fj7f92UPVkLY8LGXbIEAIiOsCMgQWaIQkgBhhBASQMWFiApWFBURnEhVxILVCkidiOKgKLhnQYqIWotVXDjuH9yntX167+3t+9f7vOec5/zOec8PgBESJpHmomoAOVKFPDrYH49PSMTJvYACFUjgBCAQ5svCZwXFAADwA3l4fnSwP/wBr28AAgBw1S4kEsfh/4O6UCZXACCRAOAiEucLAZBSAMguVMgUAMgYALBTs2QKAJQAAGx5fEIiAKoNAOz0ST4FANipk9wXANiiHKkIAI0BAJkoRyQCQLsAYFWBUiwCwMIAoKxAIi4EwK4BgFm2MkcCgL0FAHaOWJAPQGAAgJlCLMwAIDgCAEMeE80DIEwDoDDSv+CpX3CFuEgBAMDLlc2XS9IzFLiV0Bp38vDg4iHiwmyxQmEXKRBmCeQinJebIxNI5wNMzgwAABr50cH+OD+Q5+bk4eZm52zv9MWi/mvwbyI+IfHf/ryMAgQAEE7P79pf5eXWA3DHAbB1v2upWwDaVgBo3/ldM9sJoFoK0Hr5i3k4/EAenqFQyDwdHAoLC+0lYqG9MOOLPv8z4W/gi372/EAe/tt68ABxmkCZrcCjg/1xYW52rlKO58sEQjFu9+cj/seFf/2OKdHiNLFcLBWK8ViJuFAiTcd5uVKRRCHJleIS6X8y8R+W/QmTdw0ArIZPwE62B7XLbMB+7gECiw5Y0nYAQH7zLYwaC5EAEGc0Mnn3AACTv/mPQCsBAM2XpOMAALzoGFyolBdMxggAAESggSqwQQcMwRSswA6cwR28wBcCYQZEQAwkwDwQQgbkgBwKoRiWQRlUwDrYBLWwAxqgEZrhELTBMTgN5+ASXIHrcBcGYBiewhi8hgkEQcgIE2EhOogRYo7YIs4IF5mOBCJhSDSSgKQg6YgUUSLFyHKkAqlCapFdSCPyLXIUOY1cQPqQ28ggMor8irxHMZSBslED1AJ1QLmoHxqKxqBz0XQ0D12AlqJr0Rq0Hj2AtqKn0UvodXQAfYqOY4DRMQ5mjNlhXIyHRWCJWBomxxZj5Vg1Vo81Yx1YN3YVG8CeYe8IJAKLgBPsCF6EEMJsgpCQR1hMWEOoJewjtBK6CFcJg4Qxwicik6hPtCV6EvnEeGI6sZBYRqwm7iEeIZ4lXicOE1+TSCQOyZLkTgohJZAySQtJa0jbSC2kU6Q+0hBpnEwm65Btyd7kCLKArCCXkbeQD5BPkvvJw+S3FDrFiOJMCaIkUqSUEko1ZT/lBKWfMkKZoKpRzame1AiqiDqfWkltoHZQL1OHqRM0dZolzZsWQ8ukLaPV0JppZ2n3aC/pdLoJ3YMeRZfQl9Jr6Afp5+mD9HcMDYYNg8dIYigZaxl7GacYtxkvmUymBdOXmchUMNcyG5lnmA+Yb1VYKvYqfBWRyhKVOpVWlX6V56pUVXNVP9V5qgtUq1UPq15WfaZGVbNQ46kJ1Bar1akdVbupNq7OUndSj1DPUV+jvl/9gvpjDbKGhUaghkijVGO3xhmNIRbGMmXxWELWclYD6yxrmE1iW7L57Ex2Bfsbdi97TFNDc6pmrGaRZp3mcc0BDsax4PA52ZxKziHODc57LQMtPy2x1mqtZq1+rTfaetq+2mLtcu0W7eva73VwnUCdLJ31Om0693UJuja6UbqFutt1z+o+02PreekJ9cr1Dund0Uf1bfSj9Rfq79bv0R83MDQINpAZbDE4Y/DMkGPoa5hpuNHwhOGoEctoupHEaKPRSaMnuCbuh2fjNXgXPmasbxxirDTeZdxrPGFiaTLbpMSkxeS+Kc2Ua5pmutG003TMzMgs3KzYrMnsjjnVnGueYb7ZvNv8jYWlRZzFSos2i8eW2pZ8ywWWTZb3rJhWPlZ5VvVW16xJ1lzrLOtt1ldsUBtXmwybOpvLtqitm63Edptt3xTiFI8p0in1U27aMez87ArsmuwG7Tn2YfYl9m32zx3MHBId1jt0O3xydHXMdmxwvOuk4TTDqcSpw+lXZxtnoXOd8zUXpkuQyxKXdpcXU22niqdun3rLleUa7rrStdP1o5u7m9yt2W3U3cw9xX2r+00umxvJXcM970H08PdY4nHM452nm6fC85DnL152Xlle+70eT7OcJp7WMG3I28Rb4L3Le2A6Pj1l+s7pAz7GPgKfep+Hvqa+It89viN+1n6Zfgf8nvs7+sv9j/i/4XnyFvFOBWABwQHlAb2BGoGzA2sDHwSZBKUHNQWNBbsGLww+FUIMCQ1ZH3KTb8AX8hv5YzPcZyya0RXKCJ0VWhv6MMwmTB7WEY6GzwjfEH5vpvlM6cy2CIjgR2yIuB9pGZkX+X0UKSoyqi7qUbRTdHF09yzWrORZ+2e9jvGPqYy5O9tqtnJ2Z6xqbFJsY+ybuIC4qriBeIf4RfGXEnQTJAntieTE2MQ9ieNzAudsmjOc5JpUlnRjruXcorkX5unOy553PFk1WZB8OIWYEpeyP+WDIEJQLxhP5aduTR0T8oSbhU9FvqKNolGxt7hKPJLmnVaV9jjdO31D+miGT0Z1xjMJT1IreZEZkrkj801WRNberM/ZcdktOZSclJyjUg1plrQr1zC3KLdPZisrkw3keeZtyhuTh8r35CP5c/PbFWyFTNGjtFKuUA4WTC+oK3hbGFt4uEi9SFrUM99m/ur5IwuCFny9kLBQuLCz2Lh4WfHgIr9FuxYji1MXdy4xXVK6ZHhp8NJ9y2jLspb9UOJYUlXyannc8o5Sg9KlpUMrglc0lamUycturvRauWMVYZVkVe9ql9VbVn8qF5VfrHCsqK74sEa45uJXTl/VfPV5bdra3kq3yu3rSOuk626s91m/r0q9akHV0IbwDa0b8Y3lG19tSt50oXpq9Y7NtM3KzQM1YTXtW8y2rNvyoTaj9nqdf13LVv2tq7e+2Sba1r/dd3vzDoMdFTve75TsvLUreFdrvUV99W7S7oLdjxpiG7q/5n7duEd3T8Wej3ulewf2Re/ranRvbNyvv7+yCW1SNo0eSDpw5ZuAb9qb7Zp3tXBaKg7CQeXBJ9+mfHvjUOihzsPcw83fmX+39QjrSHkr0jq/dawto22gPaG97+iMo50dXh1Hvrf/fu8x42N1xzWPV56gnSg98fnkgpPjp2Snnp1OPz3Umdx590z8mWtdUV29Z0PPnj8XdO5Mt1/3yfPe549d8Lxw9CL3Ytslt0utPa49R35w/eFIr1tv62X3y+1XPK509E3rO9Hv03/6asDVc9f41y5dn3m978bsG7duJt0cuCW69fh29u0XdwruTNxdeo94r/y+2v3qB/oP6n+0/rFlwG3g+GDAYM/DWQ/vDgmHnv6U/9OH4dJHzEfVI0YjjY+dHx8bDRq98mTOk+GnsqcTz8p+Vv9563Or59/94vtLz1j82PAL+YvPv655qfNy76uprzrHI8cfvM55PfGm/K3O233vuO+638e9H5ko/ED+UPPR+mPHp9BP9z7nfP78L/eE8/sl0p8zAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAHvSURBVHjarNY7aBRRGAXgbyfrWxtB1FabRRG00irpXAsVhYgPUBIslGghiFjb2GgXMIXgFj6CYERFJMEnWqpoISRgoSkEBUkQxcREXZsbmQyzM8vOnuq/c+898z8PtzTaM6wBKjiCrViBOqbwCtfxBiq16rxL5RSiEi7gGJan7HfhBK7gFGbjm1Hi8AL043QDsjksRh9ujPWOLMrycG/4uxDeIB4Fu4QOdOIAVqEbd3Htf3iJHI5ge7D34VYDDzvxODg0hs2VWvVXMuS12Bbsd7iTEfJzPI0Vb2NaDldiWbBf4LdsjMfs1WmE9ZAnmJaPjkRnpFY573su4lX+EHJYxqd2EE7hpYKICtxdkuZYuQDhPXwJ9vt2EA5iME0cjmNNC4R1GOsdibfOjzLOYJ32YDrCd+3Dt2ZyOIPbYRT3B4lruW2mgmofxGHswkQRwme4mZC3h0UIyw1S0DJhF3pj653YkUdYz9hfiJOx9fkg/Q17M8JkE1Wew2wzffi6mYkI+JNzdiLCEP5mHNqAQ9iN9TmET0qjPcMR3mJTwSmZxJYoeHcux8tmMFCpVcfn2mYIlwqQPQhOzevDsy2S3sfRSq06kyT8GZ4hfXEFzqooLqK7Uqt+zhqtAVwNE7InvCiWBgGdxtcw45fxManY/wYAWlxuLj9+IsoAAAAASUVORK5CYII=" class="download-phone"></i>
+              <input id="password" type="password" name="password" placeholder="请输入密码" minlength="6">
+            </div>
+            <div class="download-app">
+       
+            <span class="download-appBtn"  onClick="getZce()">点击领取</span> 
+            </div>
+            <div class="download-remark">
+                <p>一个可以看视频 又赚钱的APP</p>
+              <!---  <p>即刻享受观影特权</p> -->
+            </div>
+        </div>
+    </div>
+ <!--   <div class="download-modal">
+        	<div>
+            <p><img src="/public/static/qudao/picture/download-sure.png" alt=""></p>
+            <p>领取成功</p>
+            <p>1秒后跳转至下载页面</p>
+        </div>
+    </div>
+  <div style="display:none">
+</div>-->
+  
+<script src="/public/static/assets/js/wysihtml5/lib/js/jquery-1.7.2.min.js"></script>
+<script src="/public/static/layer/layer.js"></script>
+    <script>
+        document.body.style.minHeight = window.innerHeight + 'px'
+    </script>
+
+<script type="text/javascript">
+  
+    
+      window.onload = function(){
+        if(isWeiXin()){
+            var shade = document.getElementById('shade')
+            shade.style.display = 'block'
+        }
+    }
+    function isWeiXin(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+  
+  
+  
+  
+  function getZce() {
+    var phone = document.getElementById("phone").value;
+    var password = document.getElementById("password").value;
+    var telReg = !!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);
+    if (phone=='') {
+      layer.msg('请输入手机号领取');
+      return;
+    }
+    if (phone.length != 11) {
+      layer.msg('请输入11位手机号码');
+      document.getElementById("phone").value = '';
+      return;
+    }
+    
+    if(telReg == false){
+      layer.msg('请输入正确手机号码');
+      document.getElementById("phone").value = '';
+      return;
+  
+}
+    if (password.length < 6) {
+      layer.msg('密码长度小于6位');
+      return;
+    }
+    
+    
+    
+
+    $.ajax({
+      type: "GET",
+      url: "/login/login/zce.html",
+      data: {phone:phone,password:password,uid:'{$uid}',sid:'{$sid}',code:'{$code}'},
+      dataType: "jsonp",
+      success: function(data){
+         if (data.code == 1) {
+           layer.msg('领取成功！');
+           setTimeout("tourl()","8000");
+         }else if (data.code == 0) {
+           layer.msg(data.msg);
+           setTimeout("tourl()","2000");
+         }
+        }
+    });
+
+
+    //
+
+  }
+  function tourl(){
+    window.location.href='/app/index/m.html';
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<div class="page  has-sidebar-left height-full">
+  <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-address-card"></i>
+                        激活码管理
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white">
+                    
+                    
+                    
+                <li><a class="nav-link" href="{:url('dianka/index')}"><i class="icon icon-plus-circle"></i>生成</a></li>
+                  <li><a class="nav-link  active" href="{:url('dianka/ylog')}"><i class="icon icon-donut_small"></i> 待用</a></li>
+                  <li><a class="nav-link" href="{:url('dianka/slog')}"><i class="icon icon-check-square"></i> 已用</a></li>
+              </ul>
+            </div>
+        </div>
+    </header>
+  
+  
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="tab-content my-3">
+            <div class="tab-pane animated fadeInUpShort show active go">
+                <div class="row my-3">
+                    <div class="col-md-7">
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      <div class="card ">
+                      
+                      
+                      <div class="card-body"><div class="card-body tab-pane step-content" style="display: block;">
+                        <div class="card-title">待使用激活码检索 </div>
+                  
+                      
+          <div class="sw-container tab-content">
+            
+            
+                                     	 <form class="validate" method="get" action="{:url('dianka/ylog')}">
+                                           <div class="form-row">
+                                              <div class="form-group col-md-12 focused">  </div>
+                                             
+                                             
+                                             
+                                             <div class="form-group  col-md-12  focused">
+                                               <input class="form-control form-control-lg" type="text"  id="user" value="{$user}" name="user" placeholder="输入想检索的激活码" >
+                                           </div>
+                                             
+                                             
+                                                           <div class="form-group col-md-6 focused">
+                                                             <div class="card-title">时间起点</div>
+                                                             <input   type="date" name="start" id="start" value="{$start}"  class="form-control-lg" >
+                                                             
+                                               </div>
+
+                                                           <div class="form-group col-md-6 focused">
+                                                             <div class="card-title">时间终点</div>
+                                                             <input   type="date" id="end" name="end" value="{$end}"   class="form-control-lg" >
+                                                            
+                                                             
+             
+                                                             
+                                                             
+                                                             
+                                                             
+                                               </div>
+
+                                             
+                                             
+                                             
+                                               <div class="form-group col-md-6 focused">
+                                                   <select  name="day" id="day" class="form-control form-control-lg" style=" height: 3.2rem; ">
+                                                      <option value=""}>全部</option>
+                                                      <option {$day=='体验'?'selected':''} value="体验"}>体验</option>
+                                                      <option {$day=='一月'?'selected':''} value="一月"}>一月</option>
+                                                      <option {$day=='三月'?'selected':''} value="三月"}>三月</option>
+                                                      <option {$day=='半年'?'selected':''} value="半年"}>半年</option>
+                                                      <option {$day=='一年'?'selected':''} value="一年"}>一年</option>
+                                                      <option {$day=='永久'?'selected':''} value="永久"}>永久</option>
+                                              <?php if(session('power')=='0'){?>           <option {$day=='代理'?'selected':''} value="代理"}>代理</option>  <?php } ?>  
+                                                   </select>
+                                               </div>
+                                             
+                                               <div class="form-group col-md-6 focused">
+                                                  <button type="submit" onclick="dangetian()" class="btn btn-primary form-control form-control-lg">检索</button>
+                                               </div>
+
+                                               <div class="form-group col-md-6 focused">
+                                                  <button type="button" onclick="txt()" class="btn btn-primary form-control form-control-lg">TXT文档导出 <span style="color: #e2ff00;"> ( 推荐 ) </span> </button>
+                                               </div>
+
+                                               <div class="form-group col-md-6 focused">
+                                                  <button type="button" onclick="excel()" class="btn btn-primary form-control form-control-lg">EXCEL表格导出</button>
+                                               </div>
+
+     
+                                           </div>
+                                           
+                                            </form>
+                                     
+                                     
+                                     
+                                     
+                           
+
+                  </div>
+  
+            
+                </div>   
+                    </div>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                            <div class="table-responsive">
+                              
+                              
+                                    <table class="table table-striped table-hover r-0">
+                                        <thead>
+                                        <tr class="no-b">
+
+                                            <th>#</th>
+                                            <th>Activation Code</th>
+                                            <th>所属</th>
+                                            <th>类型</th>
+                                            <th>生成时间</th>
+                                        </tr>
+                                        </thead>
+
+                                      
+                                      
+                                      
+                                        <tbody>
+                                          
+                                          
+                                          
+                                          {volist name="list" id="vo"} 
+                                          <tr>
+                                          <td> <small>{$vo.id}</small>  </td>
+										<td> <small><span style="color: #03a9f4;">{$vo.dianka}</span></small></td>
+                                          <td> <small>{:_name($vo.uid)}</small></td>
+
+                                            <td> <small>{$vo.name}</small></td>
+                                            <td> <small><?php echo date('Y-m-d H:i:s',$vo['ctime'])?></small></td>
+
+           																									
+                                        </tr>
+								 {/volist}  
+          
+                                        
+                                        
+
+                                        </tbody>
+                                    </table>
+
+                            </div>        
+                        </div>
+               	{$list->render()}  
+              
+              </div>
+          				<div class="col-md-5">
+                                  <h3>激活码检索帮助</h3>
+                                  <hr>
+                                  <p>其实也没啥要说的,用法还是老样子.</p>
+                                  <p>修复了列出分类</p>
+                                  <p>修复了导出问题</p>
+                      
+                                  <h4 class="mt-5">未完待续</h4>
+                                  <hr>
+
+                              </div>
+          
+                
+            </div>
+
+              
+              
+              
+              
+
+        </div>
+    </div>
+</div>
+  
+  
+  <script>
+
+    function txt() {
+        var user    = $('#user').val();
+        var start    = $('#start').val();
+        var end    = $('#end').val();
+        var day    = $('#day').val();
+        window.open('/index/dao/ctxt.html?user='+user+'&start='+start+'&end='+end+'&day='+day);
+    }
+
+    function excel() {
+        var user    = $('#user').val();
+        var start    = $('#start').val();
+        var end    = $('#end').val();
+        var day    = $('#day').val();
+        window.open('/index/dao/cexcel.html?user='+user+'&start='+start+'&end='+end+'&day='+day);
+    }
+
+</script>

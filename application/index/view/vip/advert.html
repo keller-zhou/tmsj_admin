@@ -1,0 +1,278 @@
+          	 <style>
+    .panel-info .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-warning .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-danger .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-red .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-black .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-purple .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-blue .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-gray .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+    .panel-success .my_panel_head{
+        text-align: center; padding-top:10px;padding-bottom: 10px;
+    }
+
+</style>
+<div class="row">
+    <div class="col-md-12">
+      
+<div class="panel panel-default">
+
+  
+    <!--标题-->
+         
+       <div class="panel-heading">
+              
+               <div class="caption font-green bold">
+                        <span class="am-icon-code"></span> 系统设置
+       		  </div>
+
+      </div>
+       
+   
+    <!--标题-->
+  
+
+    <div class="panel-body">
+
+        <form role="form" id="form1" method="post" action="{:url('vip/advert')}" class="validate">
+
+          
+            <div class="form-group">     
+              <div style="text-align: right;"> 
+                <button type="submit" class="btn btn-success">提交</button>
+                <button type="reset" class="btn btn-white">重置</button>
+                </div>
+            </div>
+
+          
+          
+          
+			<div class="form-group" >
+                <label class="control-labell" for="field-5" style="color:#fb0cb5">APP名称 20</label>
+				<br>
+                <input class="form-control" style="margin: 0px -33.5px 0px 0px;  max-width: 350px;  width: 100%;  height: 30px;" value="{:advert('20')}" name="zad1" >
+            </div> 
+          
+        <div class="row">
+            <!-- 基础设置 -->
+            <div class="col-md-6">
+                    <div class="panel panel-warning " style="padding:10px 5px 10px 0px;">
+                        <div class="panel-heading my_panel_head">基础设置</div>
+                        <div class="panel-body">
+                          
+                          				<div class="form-group">
+                <label class="control-labell" for="field-5" >试用时间 5（请填写分钟）</label>
+				<br>
+                <input type='number' class="form-control" style="margin: 0px -33.5px 0px 0px; max-width: 200px;  width: 100%; height: 30px;" value="{:advert('5')}" name="time" >
+            </div>
+
+
+                          
+                          
+                          	<div class="form-group" >
+  
+                <label class="control-labell" for="field-5">签到积分随机赠送范围  2  -   3</label>
+					<table style="width:200px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#fff">
+
+	
+					<td style="width:33.33%;text-align:center;">  <input class="form-control" style="margin: 0px -33.5px 0px 0px; width: 65px; height: 30px;" value="{:advert('2')}" name="down" >  </td>
+              
+					<td style="width:33.33%;text-align:center;"> <span>-</span></td>
+              
+					<td style="width:33.33%;text-align:center;">  <input class="form-control" style="margin: 0px -33.5px 0px 0px; width: 66px; height: 30px;" value="{:advert('3')}" name="pass" >	</td>
+
+
+					</table>
+
+     	 </div>        
+          
+			<div class="form-group" >
+                <label class="control-labell" for="field-5">积分兑换 4（多少积分兑换一天使用时间）</label>
+				<br>
+                <input class="form-control" style="margin: 0px -33.5px 0px 0px; max-width: 200px;  width: 100%; height: 30px;" value="{:advert('4')}" name="sign" >
+            </div>
+
+
+                          
+          
+          
+        <div class="form-group" >
+                <label class="control-labell" for="field-5">APP首页弹窗公告（填写内容后弹出公告 不填不弹）   6 </label>
+				<br>
+                <textarea class="form-control" name="ban" cols="5" id="field-5" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 50px;">{:advert('6')}</textarea>
+         </div>
+          
+          
+   
+    	 <div class="form-group">
+                <label >APP首页文字公告  7 </label>
+                <textarea class="form-control" name="advert1" cols="5" id="field-5" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 50px;">{:advert('7')}</textarea>
+          </div>
+          
+          
+           <div class="form-group">
+       
+                <label  class="control-labell" for="field-5">代理公告 1</label>
+	
+                <textarea class="form-control" name="advert" cols="5" id="field-5" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 50px;">{:advert('1')}</textarea>
+           </div>
+          
+	
+
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+      
+                        </div>
+                    </div>
+                </div>
+            <!-- 解析接口设置 -->
+            <div class="col-md-6">
+                <div class="panel panel-danger" style="padding:10px 5px 10px 0px;">
+                    <div class="panel-heading my_panel_head">解析接口设置</div>
+                    <div class="panel-body">
+                      
+                      
+				<div class="form-group">
+
+                <label class="control-labell" for="field-5">解析接口地址1</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 30px;" value="{:advert('8')}" name="geng" >
+            </div>
+			<br>
+			<div class="form-group">
+                <label class="control-labell" for="field-5">解析接口地址2</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 30px;" value="{:advert('9')}" name="geng2" >
+            </div>
+			<br>
+			<div class="form-group">
+                <label class="control-labell" for="field-5">解析接口地址3</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 30px;" value="{:advert('10')}" name="geng3" >
+            </div>
+			<br>
+			<div class="form-group">
+                <label class="control-labell" for="field-5">解析接口地址4</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;   width: 100%; height: 30px;" value="{:advert('11')}" name="geng4" >
+            </div>
+			<br>
+			<div class="form-group">
+                <label class="control-labell" for="field-5">解析接口地址5</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 30px;" value="{:advert('12')}" name="geng5" >
+            </div>
+	
+                    
+          
+			<br>
+			<div class="form-group">
+                <label class="control-labell" for="field-5">解析接口地址6</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 30px;" value="{:advert('13')}" name="geng6" >
+            </div>
+          
+			<br>
+			<div class="form-group">
+                <label class="control-labell" for="field-5">解析接口地址7</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 30px;" value="{:advert('14')}" name="geng7" >
+            </div>
+          
+			<br>
+			<div class="form-group">
+                <label class="control-labell" for="field-5">解析接口地址8</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 30px;" value="{:advert('15')}" name="geng8" >
+            </div>
+          
+			<br>
+			<div class="form-group">
+                <label class="control-labell" for="field-5">解析接口地址9</label>
+                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px;  width: 100%; height: 30px;" value="{:advert('16')}" name="geng9" >
+            </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+            <div class="form-group">
+         
+                <button type="submit" class="btn btn-success">提交</button>
+                <button type="reset" class="btn btn-white">重置</button>
+                 
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+    </div>
+
+</div>
+
+
+
+
+{$code=='1'?'<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  max-width: 350px;  width: 100%;">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 !</strong> 修改成功.
+    </div>
+</div>
+
+':''}
+<script>
+    setTimeout("$('#alert').fadeOut(1000)",2000)
+</script>
+
+<script>
+var number=9; //定义条目数
+
+function LMYC() {
+var lbmc;
+    for (i=1;i<=number;i++) {
+        lbmc = eval('LM' + i);
+        lbmc.style.display = 'none';
+    }
+}
+ 
+function ShowFLT(i) {
+    lbmc = eval('LM' + i);
+    if (lbmc.style.display == 'none') {
+        LMYC();
+        lbmc.style.display = '';
+    }
+    else {
+        lbmc.style.display = 'none';
+    }
+}
+</script>
+
+<script type="text/javascript">
+var __aObj=document.getElementsByTagName("a");
+var __length=__aObj.length;
+for(var i=0;i<__length;i++){
+	__aObj[i].onfocus=function(){this.blur();}
+}
+</script>

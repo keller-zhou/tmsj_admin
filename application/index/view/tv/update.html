@@ -1,0 +1,157 @@
+<div class="page has-sidebar-left  height-full">
+
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-live_tv"></i>
+                        电视TV直播
+                    </h4>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <ul class="nav nav-material nav-material-white responsive-tab" >
+                    <li>
+                        <a class="nav-link "  href="{:url('tv/index')}" ><i class="icon-th-list"></i> 电视TV直播</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" ><i class="icon icon-pencil"></i> 编辑</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+  
+
+  
+  
+  
+    <div class="container-fluid animatedParent animateOnce">
+        <div class="animated fadeInUpShort go">
+          <div class="container-fluid my-3">
+            <div class="row">
+                <div class="col-md-7 ">
+                         <form  role="form" id="form1"  method="post" action="{:url('tv/edit')}" enctype="multipart/form-data" >
+                           <input type="hidden" name="id" value="{$data['id']}">
+                        <div class="card no-b  no-r">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-8">
+                                      
+                                      
+                                      
+                                      
+        								  <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">图片</label>
+
+               							 <input type="file" class="form-control" name="img" />
+   
+                        
+                                        </div>                  
+                                      
+                                      
+                                      
+                                      
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">标题</label>
+                                            <input class="form-control r-0 light s-12 " name="title"   value="{$data['title']}"  required="required" placeholder="" type="text">
+                                          
+                                        </div>
+                                        
+                                      
+                                      
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">详情</label>
+                                            <input class="form-control r-0 light s-12 " name="content"   value="{$data['content']}"  placeholder="" type="text">
+                                          
+                                        </div>
+                                        <div class="form-group m-0">
+                                            <label for="name" class="col-form-label s-12">类型</label>
+                                            <input class="form-control r-0 light s-12 " name="type"   value="{$data['type']}"  placeholder="0直播1专题" type="text">
+                                          
+                                        </div>
+                                                                                
+
+                                      
+                                     <div class="form-group m-0">
+                                        <label for="address" class="col-form-label s-12">播放地址</label>
+                                        <input type="text" class="form-control r-0 light s-12" name="url" value="{$data['url']}"   placeholder="">
+                                    </div>
+
+                                      
+                                      
+
+                          </div>
+                                  
+                
+                                  
+                                  
+                                    <div class="col-md-3 offset-md-1">
+									
+				
+		<div style=" min-height: 250px; border: 2px solid rgba(0,0,0,.3); background: #fff; padding: 20px 20px; border: 2px dashed #e1e8ee; ">
+           <img src="{$data['img']}">
+        </div>
+		
+		
+     
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <hr>
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg"><i class="icon-save mr-2"></i>保存发布</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+              
+              
+              
+              
+                    
+          				<div class="col-md-5">
+                                  <h3>TV 直播 帮助</h3>
+                                  <hr>
+                                  <p>直播源可以自行寻找添加 	</p>
+                                  <p>当前直播专题只支持编辑 不支持添加 下个版本再说</p>
+         
+                                  <hr>
+                                  <h4 class="mt-5">未完待续</h4>
+                                  <a href="#" target="_blank" class="btn btn-outline-primary btn-xs">Perfect Network Service</a>
+                                
+                              </div>   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+{$code?'
+<div class="col-md-6">
+    <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong> 糟糕 !</strong> '.$code.'
+    </div>
+</div>
+
+':''}
