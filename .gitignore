@@ -1,0 +1,14 @@
+# Node
+logs
+*.log
+npm-debug.log*
+node_modules
+.npm
+# Created by IDE
+.idea/
+*.iml
+.DS_Store
+runtime
+application/database.php
+
+
